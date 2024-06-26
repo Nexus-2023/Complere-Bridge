@@ -16,6 +16,7 @@ export type NetworkName =
   | 'sepolia'
   | 'holesky'
   | 'nexus-orbit'
+    | 'base-sepolia'
 
 type NetworkConfig = {
   networkName: NetworkName

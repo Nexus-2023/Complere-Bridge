@@ -12,7 +12,8 @@ import {
   localL1Network as local,
   localL2Network as arbitrumLocal,
   nexusOrbit,
-  holesky
+  holesky,
+  baseSepolia
 } from './wagmiAdditionalNetworks'
 import { isTestingEnvironment } from '../CommonUtils'
 import { getCustomChainsFromLocalStorage, ChainId } from '../networks'
@@ -29,6 +30,7 @@ const wagmiOrbitChains = getOrbitChains().map(chain =>
 
 const chainList = isTestingEnvironment
   ? [
+    baseSepolia,
     holesky,
       // mainnet, arb1, & arb nova are for network switch tests
       mainnet,
@@ -49,6 +51,7 @@ const chainList = isTestingEnvironment
       ...customChains
     ]
   : [
+    baseSepolia,
       mainnet,
       arbitrum,
       holesky,
@@ -78,18 +81,19 @@ enum TargetChainKey {
   Sepolia = 'sepolia',
   ArbitrumSepolia = 'arbitrum-sepolia' ,
   Nexus_Orbit = "nexus-orbit",
-  Holesky = "holesky"
+  Holesky = "holesky",
+  baseSepolia = "base-sepolia"
 }
 
 function sanitizeTargetChainKey(targetChainKey: string | null): TargetChainKey {
-  // Default to Holesky Mainnet if nothing passed in
+  // Default to  baseSepolia if nothing passed in
   if (targetChainKey === null) {
-    return TargetChainKey.Holesky
+    return TargetChainKey. baseSepolia
   }
 
-  // Default to Holesky Mainnet if invalid
+  // Default to  baseSepolia if invalid
   if (!(Object.values(TargetChainKey) as string[]).includes(targetChainKey)) {
-    return TargetChainKey.Holesky
+    return TargetChainKey. baseSepolia
   }
 
   return targetChainKey as TargetChainKey
@@ -115,7 +119,10 @@ function getChainId(targetChainKey: TargetChainKey): number {
     
     case TargetChainKey.Nexus_Orbit:
       return ChainId.NexusOrbit
-    
+ 
+      case TargetChainKey.baseSepolia:
+        return ChainId.baseSepolia
+
     case TargetChainKey.Holesky:
       return ChainId.Holesky
 

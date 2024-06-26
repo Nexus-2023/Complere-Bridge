@@ -65,3 +65,35 @@ export async function addNexusChain() {
       console.log(error)
     }
   }
+
+  export async function addBaseSepoliaChain() {
+    try {
+      if (typeof window.ethereum !== 'undefined') {
+        const result = await window.ethereum.request({
+          method: 'wallet_addEthereumChain',
+          params: [
+            {
+              chainId: '0x14A34',
+              rpcUrls: [
+                `${process.env.NEXT_PUBLIC_BASE_SEPOLIA_RPC_URL}` || "invalid rpc"
+              ],
+              chainName: 'Base Sepolia Testnet',
+              nativeCurrency: {
+                name: 'ETHER',
+                symbol: 'ETH',
+                decimals: 18
+              },
+              blockExplorerUrls: [
+               `${process.env.NEXT_PUBLIC_BASE_SEPOLIA_EXPLORERL}` || "invalid explorer"
+              ]
+            }
+          ]
+        })
+        console.log('Metamask is installed')
+      } else {
+        console.log('Metamask is not installed')
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }

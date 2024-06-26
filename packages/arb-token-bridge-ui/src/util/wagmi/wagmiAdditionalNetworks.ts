@@ -63,6 +63,29 @@ export const holesky: Chain = {
   }
 }
 
+
+export const baseSepolia: Chain = {
+  id: ChainId.baseSepolia,
+  name: 'Base Sepolia',
+  network: 'Base Sepolia',
+  nativeCurrency: ether,
+  rpcUrls: {
+    default: {
+      http: [rpcURLs[ChainId.baseSepolia]!]
+    },
+    public: {
+      http: [rpcURLs[ChainId.baseSepolia]!]
+    }
+  },
+  blockExplorers: {
+    etherscan: {
+      name: 'Etherscan',
+      url: explorerUrls[ChainId.baseSepolia]!
+    },
+    default: { name: 'blockScout', url: explorerUrls[ChainId.baseSepolia]! }
+  }
+}
+
 export const arbitrumSepolia: Chain = {
   id: ChainId.ArbitrumSepolia,
   name: 'Arbitrum Sepolia',

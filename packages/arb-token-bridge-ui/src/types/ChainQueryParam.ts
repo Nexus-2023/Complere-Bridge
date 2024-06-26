@@ -1,6 +1,6 @@
 import { Chain } from 'wagmi'
 import * as chains from 'wagmi/chains'
-import { holeskyChain, nexusOrbitChain } from '../util/wagmi/ExtraChains'
+import { holeskyChain, nexusOrbitChain , baseSepoliaChain } from '../util/wagmi/ExtraChains'
 import {
   ChainId,
   getCustomChainFromLocalStorageById,
@@ -20,6 +20,7 @@ const chainQueryParams = [
   'custom-localhost',
   'arbitrum-localhost',
   'holesky',
+  'base-sepolia' ,
   'nexus-orbit-chain'
 ] as const
 
@@ -71,7 +72,9 @@ export function getChainQueryParamForChain(chainId: ChainId): ChainQueryParam {
       return 'arbitrum-localhost'
     case ChainId.Holesky:
       return 'holesky'
-
+      case ChainId.baseSepolia:
+        return 'base-sepolia'
+  
     case ChainId.NexusOrbit:
       return 'nexus-orbit-chain'
 
@@ -126,6 +129,9 @@ export function getChainForChainKeyQueryParam(
 
     case 'nexus-orbit-chain':
       return nexusOrbitChain
+
+    case "base-sepolia" :
+      return baseSepoliaChain
 
     default:
       const orbitChain = getOrbitChains().find(

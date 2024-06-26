@@ -34,6 +34,41 @@ export var holeskyChain:Chain = {
     testnet: true
   };
   
+
+
+  export var baseSepoliaChain:Chain = {
+    id: 84532,
+    network: "Base Sepolia",
+    name: "Base Sepolia",
+    nativeCurrency: { name: "Ether", symbol: "ETH", decimals: 18 },
+    rpcUrls: {
+      default: {
+        http: [`${process.env.NEXT_PUBLIC_BASE_SEPOLIA_RPC_URL}`]
+      },
+      public: {
+        http: [`${process.env.NEXT_PUBLIC_BASE_SEPOLIA_RPC_URL}`]
+      }
+    },
+    blockExplorers: {
+      etherscan: {
+        name: "BlockScout",
+        url: `${process.env.NEXT_PUBLIC_BASE_SEPOLIA_EXPLORER}`  
+      },
+      default: {
+        name: "BlockScout",
+        url: `${process.env.NEXT_PUBLIC_BASE_SEPOLIA_EXPLORER}`  
+      }
+    },
+    contracts: {
+      multicall3: {
+        address: "0xcA11bde05977b3631167028862bE2a173976CA11",
+        blockCreated: 1059647
+
+      }
+    },
+    testnet: true
+  };
+  
   export var nexusOrbitChain:Chain = {
     id: 13331370,
     network: "nexus-orbit-chain",

@@ -14,7 +14,7 @@ import logo from '/public/images/nexus/nexusLogoUncompressed.svg'
 import { usePathname } from 'next/navigation'
 import { HeaderAccountPopover } from './HeaderAccountPopover'
 import { Header } from './Header'
-import { addNexusChain, addHoleskyChain } from '../../util/metamask'
+import { addNexusChain, addHoleskyChain , addBaseSepoliaChain} from '../../util/metamask'
 
 import {
   AddChainButton,
@@ -128,30 +128,11 @@ function ResponsiveAppBar({ wallet, marginBelow }: ResponsiveAppBarProps) {
                     }
                   }}
                 >
-                  Deposit
+                  Bridge
                 </MenuItem>
               </Link>
 
-              <Link href="/rollup">
-                <MenuItem
-                  sx={{
-                    width: { sm: '80vw', xs: '90vw' },
-
-                    color: 'white',
-                    py: '8px',
-                    backdropFilter: 'blur(5px)',
-                    borderRadius: '8px',
-
-                    transition: 'background 0.3s ease-in-out',
-
-                    ':hover': {
-                      background: '#003F69'
-                    }
-                  }}
-                >
-                  Dashboard
-                </MenuItem>
-              </Link>
+  
 
               <Link href="https://docs.nexusnetwork.live/" target="_blank">
                 <MenuItem
@@ -262,13 +243,11 @@ function ResponsiveAppBar({ wallet, marginBelow }: ResponsiveAppBarProps) {
             <div className="   flex  space-x-6  text-base  ">
               <button className=" my-2 block  font-normal  capitalize   transition-all  duration-300  ease-in-out  hover:text-[#1377BB]">
                 <Link href="/?destinationChain=nexus-orbit-chain&sourceChain=holesky">
-                  Deposit
+                  Bridge
                 </Link>
               </button>
 
-              <button className=" my-2 block  font-normal  capitalize   transition-all  duration-300  ease-in-out  hover:text-[#1377BB]">
-                <Link href="/rollup">Dashboard</Link>
-              </button>
+    
 
               <button className=" my-2 block  font-normal  capitalize   transition-all  duration-300  ease-in-out  hover:text-[#1377BB]">
                 <Link href="https://docs.nexusnetwork.live/" target="_blank">

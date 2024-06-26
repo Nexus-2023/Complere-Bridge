@@ -1,5 +1,5 @@
 import React from 'react'
-import { addHoleskyChain, addNexusChain } from '../../util/metamask'
+import { addHoleskyChain, addNexusChain , addBaseSepoliaChain } from '../../util/metamask'
 import { Button } from '@mui/material'
 import { useNetworks } from '../../hooks/useNetworks'
 import { useNetworksRelationship } from '../../hooks/useNetworksRelationship'
@@ -22,39 +22,9 @@ export const AddChainButton = () => {
     <div>
       {(isParentChainEthereum && isConnectedToArbitrum) ||
       isConnectedToOrbitChain ? (
-        <Button
-          className="   rounded-lg    border-2 text-sm   font-medium hover:border-2       "
-          onClick={addHoleskyChain}
-          variant="outlined"
-          sx={{ color: '#1377BB' }}
-          title="add testnet holesky chain to your metamask"
-        >
-          <Image
-            src={MetamaskLogo}
-            width={25}
-            height={25}
-            alt="metamask logo"
-            className="mr-2"
-          />
-          Add Holesky
-        </Button>
+        <AddBaseSepoliaButton/>
       ) : (
-        <Button
-          className="   rounded-lg    border-2 text-sm   font-medium hover:border-2       "
-          onClick={addNexusChain}
-          variant="outlined"
-          sx={{ color: '#1377BB' }}
-          title="add testnet nexus network chain to your metamask"
-        >
-          <Image
-            src={MetamaskLogo}
-            width={25}
-            height={25}
-            alt="metamask logo"
-            className="mr-2"
-          />
-          Add Nexus
-        </Button>
+        <AddNexusButton/>
       )}
     </div>
   )
@@ -78,6 +48,29 @@ export const AddNexusButton = () => {
           className="mr-2"
         />
         Add Nexus
+      </Button>
+    </div>
+  )
+}
+
+export const AddBaseSepoliaButton = () => {
+  return (
+    <div>
+      <Button
+        className="   rounded-lg    border-2 text-sm   font-medium hover:border-2       "
+        onClick={addBaseSepoliaChain}
+        variant="outlined"
+        sx={{ color: '#1377BB' }}
+       title="add testnet base sepolia chain to your metamask"
+      >
+        <Image
+          src={MetamaskLogo}
+          width={25}
+          height={25}
+          alt="metamask logo"
+          className="mr-2"
+        />
+    Add Base Sepolia
       </Button>
     </div>
   )

@@ -50,6 +50,16 @@ export function getBridgeUiConfigForChain(chainId: number): BridgeUiConfig {
           description: 'Ethereum testnet.'
         }
       }
+
+      case ChainId.baseSepolia:
+        return {
+          color: '#1045CE',
+          network: {
+            ...ethereumBaseConfig.network,
+            name: 'Base Sepolia',
+            description: 'Base testnet'
+          }
+        }
     case ChainId.Local:
       return {
         ...ethereumBaseConfig,

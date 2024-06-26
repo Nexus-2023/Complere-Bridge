@@ -71,7 +71,9 @@ export function chainIdToInfuraKey(chainId: ChainId) {
       case ChainId.NexusOrbit:
         return `${process.env.NEXT_PUBLIC_NEXUS_ORBIT_RPC_URL || "null rpc"}`
 
-      
+        case ChainId.baseSepolia:
+          return `${process.env.NEXT_PUBLIC_BASE_SEPOLIA_RPC_URL || "null rpc"}`
+
         case ChainId.Holesky:
           return `https://ethereum-holesky-rpc.publicnode.com`
     default:
@@ -94,7 +96,9 @@ export function chainIdToInfuraUrl(chainId: ChainId) {
 
     case ChainId.NexusOrbit:
       return `${process.env.NEXT_PUBLIC_NEXUS_ORBIT_RPC_URL || "null rpc"}`
-
+      
+        case ChainId.baseSepolia:
+          return `${process.env.NEXT_PUBLIC_BASE_SEPOLIA_RPC_URL || "null rpc"}`
       
     case ChainId.Holesky:
       return `https://ethereum-holesky-rpc.publicnode.com`

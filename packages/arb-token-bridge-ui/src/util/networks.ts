@@ -130,6 +130,7 @@ export function removeCustomChainFromLocalStorage(chainId: number) {
 export enum ChainId {
   Holesky = 17000,
   NexusOrbit = 13331370,
+  baseSepolia = 84532,
   // L1
   Ethereum = 1,
   // L1 Testnets
@@ -149,7 +150,7 @@ export enum ChainId {
 
 export const supportedCustomOrbitParentChains = [
   ChainId.Sepolia,
-  ChainId.Holesky,
+  ChainId.baseSepolia,
   ChainId.ArbitrumSepolia
 ]
 
@@ -184,6 +185,11 @@ export const rpcURLs: { [chainId: number]: string } = {
     env: process.env.NEXT_PUBLIC_NEXUS_ORBIT_RPC_URL,
     fallback: `${process.env.NEXT_PUBLIC_NEXUS_ORBIT_RPC_URL || "null rpc"}`
   }),
+
+  [ChainId.baseSepolia]: loadEnvironmentVariableWithFallback({
+    env: process.env.NEXT_PUBLIC_BASE_SEPOLIA_RPC_URL,
+    fallback: `https://base-sepolia-rpc.publicnode.com`
+  }),
   // Orbit Testnets
   [ChainId.StylusTestnet]: 'https://stylus-testnet.arbitrum.io/rpc'
 }
@@ -201,7 +207,9 @@ export const explorerUrls: { [chainId: number]: string } = {
   [ChainId.ArbitrumSepolia]: 'https://sepolia.arbiscan.io',
   // Orbit Testnets
   [ChainId.StylusTestnet]: 'https://stylus-testnet-explorer.arbitrum.io',
-  [ChainId.NexusOrbit]: `${process.env.NEXT_PUBLIC_NEXUS_ORBIT_EXPLORER_URL || "https://testnet.explorer.nexusnetwork.live"}`
+  [ChainId.NexusOrbit]: `${process.env.NEXT_PUBLIC_NEXUS_ORBIT_EXPLORER_URL || "https://testnet.explorer.nexusnetwork.live"}`,
+    [ChainId.baseSepolia]: `${process.env. NEXT_PUBLIC_BASE_SEPOLIA_EXPLORER || "https://base-sepolia.blockscout.com"}`
+  
 }
 
 export const getExplorerUrl = (chainId: ChainId) => {
@@ -345,6 +353,7 @@ export function isNetwork(chainId: ChainId) {
 
   const isSepolia = chainId === ChainId.Sepolia
   const isHolesky = chainId === ChainId.Holesky
+  const isBaseSepolia = chainId === ChainId.baseSepolia
   const isLocal = chainId === ChainId.Local
   const isNexusOrbit = chainId === ChainId.NexusOrbit
 
@@ -355,7 +364,7 @@ export function isNetwork(chainId: ChainId) {
 
   const isStylusTestnet = chainId === ChainId.StylusTestnet
 
-  const isEthereumMainnetOrTestnet = isHolesky
+  const isEthereumMainnetOrTestnet = isBaseSepolia
     // isEthereumMainnet || isSepolia    || isLocal
 
   const isArbitrum =
@@ -375,7 +384,7 @@ export function isNetwork(chainId: ChainId) {
     // isLocal ||
     // isArbitrumLocal ||
     // isSepolia ||
-    isHolesky ||
+    isBaseSepolia ||
     isNexusOrbit
     // isArbitrumSepolia ||
     // isCustomOrbitChain ||
@@ -391,12 +400,12 @@ export function isNetwork(chainId: ChainId) {
     isCustomOrbitChain ||
     isMainnetOrbitChain ||
     isTestnetOrbitChain ||
-    isHolesky ||
+    isBaseSepolia ||
     isNexusOrbit
 
   return {
     // L1
-    isHolesky,
+    isBaseSepolia,
     isEthereumMainnet,
     isEthereumMainnetOrTestnet,
     // L1 Testnets

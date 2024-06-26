@@ -12,6 +12,7 @@ import {
 import {
   sepolia,
   holesky,
+  baseSepolia,
   arbitrumNova,
   arbitrumSepolia,
   stylusTestnet,
@@ -62,6 +63,7 @@ export function isSupportedChainId(
     mainnet.id,
     sepolia.id,
     holesky.id,
+    baseSepolia.id,
     nexusOrbit.id,
     arbitrum.id,
     arbitrumNova.id,
@@ -87,22 +89,22 @@ export function sanitizeQueryParams({
   // when both `sourceChain` and `destinationChain` are undefined or invalid, default to Holesky and NexusOrbit
   if (
     (!sourceChainId && !destinationChainId) ||
-    (sourceChainId == 1 || 1337 || 11155111 || 42161 ||42170 ||421614 || 412346 ||23011913   ) ||
-    (destinationChainId == 1 || 1337|| 11155111 || 42161 ||42170 ||421614 || 412346 || 23011913   ) ||
+    (sourceChainId == 1 || 1337 || 11155111 || 42161 ||42170 ||421614 || 412346 ||23011913  || 17000  ) ||
+    (destinationChainId == 1 || 1337|| 11155111 || 42161 ||42170 ||421614 || 412346 || 23011913  || 17000  ) ||
     (!isSupportedChainId(sourceChainId) &&
       !isSupportedChainId(destinationChainId))
   ) {
 
-    if (sourceChainId == 17000 && destinationChainId== 13331370) {
+    if (sourceChainId == 84532 && destinationChainId== 13331370) {
       return {
-        sourceChainId: ChainId.Holesky,
+        sourceChainId: ChainId.baseSepolia,
         destinationChainId: ChainId.NexusOrbit
       }
     }
     else {
       return {
         sourceChainId:ChainId.NexusOrbit ,
-        destinationChainId:    ChainId.Holesky
+        destinationChainId:    ChainId.baseSepolia
       }
     }
 
@@ -114,7 +116,7 @@ export function sanitizeQueryParams({
     isSupportedChainId(destinationChainId)
   ) {
     const [defaultSourceChainId] = getDestinationChainIds(destinationChainId)
-    return { sourceChainId: ChainId.Holesky, destinationChainId }
+    return { sourceChainId: ChainId.baseSepolia, destinationChainId }
   }
 
   // sourceChainId is valid and destinationChainId is undefined

@@ -4,6 +4,7 @@ import { mainnet, arbitrum } from 'wagmi/chains'
 import {
   chainToWagmiChain,
   sepolia,
+  baseSepolia,
   holesky,
   arbitrumNova,
   arbitrumSepolia,
@@ -35,6 +36,9 @@ export function getWagmiChain(chainId: number): Chain {
     case ChainId.Holesky:
       return holesky
 
+      case ChainId.baseSepolia:
+        return baseSepolia
+  
     case ChainId.NexusOrbit:
         return  nexusOrbit
 

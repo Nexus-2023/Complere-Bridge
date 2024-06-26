@@ -61,10 +61,10 @@ exports.networks = {
         isCustom: false,
         isArbitrum: false,
     },
-    17000: {
-        chainID: 17000,
-        name: 'holesky',
-        explorerUrl: 'https://holesky.etherscan.io',
+    84532: {
+        chainID: 84532,
+        name: 'Base Sepolia',
+        explorerUrl: 'https://base-sepolia-rpc.publicnode.com',
         partnerChainIDs: [13331370],
         blockTime: 12,
         isCustom: false,

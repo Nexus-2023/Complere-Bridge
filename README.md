@@ -1,10 +1,7 @@
-# Nexus Orbit Chain Dapp
+# Complare Bridge
 
 ## Introduction
-Nexus Orbit Chain is a chain run on arbitrum nitro node and the repo is a fork of arbitrum bridge which showcases Nexus Staking yeilds for Rollups(currently on nexus chain) with support of holesky as parent chain 
-
-Official arbitrum bridge [Repo](https://github.com/OffchainLabs/arbitrum-token-bridge)
-
+ 
 
 ## Prerequisites for running the code
 
@@ -17,10 +14,10 @@ Official arbitrum bridge [Repo](https://github.com/OffchainLabs/arbitrum-token-b
  
 ## Steps to run the code locally
 
-1. Clone the Arbitrum token bridge repository from Github onto your local machine
+1. Clone the repository from Github onto your local machine
 
    ```bash
-   $ git clone https://github.com/Nexus-2023/arbitrum-token-bridge.git
+   $ git clone 
    ```
 
 2. Use the Node version as per project settings to avoid any errors before project installation.
