@@ -111,7 +111,7 @@ function ResponsiveAppBar({ wallet, marginBelow }: ResponsiveAppBarProps) {
                 </MenuItem>
               )}
 
-              <Link href="/?destinationChain=nexus-orbit-chain&sourceChain=holesky">
+              <Link href="/?destinationChain=nexus-orbit-chain&sourceChain=base-sepolia">
                 <MenuItem
                   sx={{
                     width: { sm: '80vw', xs: '90vw' },
@@ -242,7 +242,7 @@ function ResponsiveAppBar({ wallet, marginBelow }: ResponsiveAppBarProps) {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', lg: 'flex' } }}>
             <div className="   flex  space-x-6  text-base  ">
               <button className=" my-2 block  font-normal  capitalize   transition-all  duration-300  ease-in-out  hover:text-[#1377BB]">
-                <Link href="/?destinationChain=nexus-orbit-chain&sourceChain=holesky">
+                <Link href="/?destinationChain=nexus-orbit-chain&sourceChain=base-sepolia">
                   Bridge
                 </Link>
               </button>

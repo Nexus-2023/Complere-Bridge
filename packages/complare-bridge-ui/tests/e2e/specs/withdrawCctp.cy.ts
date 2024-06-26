@@ -2,7 +2,7 @@
  * When user wants to bridge USDC through CCTP from L2 to L1
  */
 
-import { CommonAddress } from 'packages/arb-token-bridge-ui/src/util/CommonAddressUtils'
+import { CommonAddress } from 'packages/complare-bridge-ui/src/util/CommonAddressUtils'
 import { formatAmount } from '../../../src/util/NumberUtils'
 import { shortenAddress } from '../../../src/util/CommonUtils'
 

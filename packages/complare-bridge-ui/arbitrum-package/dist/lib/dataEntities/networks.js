@@ -84,8 +84,8 @@ exports.networks = {
         isArbitrum: true,
         isCustom: true,
         name: 'nexus-orbit-chain',
-        partnerChainID: 17000,
-        partnerChainIDs: [17000],
+        partnerChainID: 84532,
+        partnerChainIDs: [84532],
         retryableLifetimeSeconds: constants_1.SEVEN_DAYS_IN_SECONDS,
         tokenBridge: {
             l1CustomGateway: '0x2fB2f4438E58Adf2317A8E01D7A9147c35E8B17C',

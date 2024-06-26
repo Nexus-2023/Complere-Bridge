@@ -8,5 +8,5 @@ runs:
       uses: actions/cache/save@v3
       with:
         path: |
-          ./packages/arb-token-bridge-ui/build
+          ./packages/complare-bridge-ui/build
         key: build-artifacts-${{ github.run_id }}
