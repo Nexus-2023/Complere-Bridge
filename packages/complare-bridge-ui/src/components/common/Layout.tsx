@@ -7,7 +7,7 @@ import {
   ArbQueryParamProvider,
   useArbQueryParams
 } from '../../hooks/useArbQueryParams'
-import { Sidebar } from '../Sidebar'
+ 
 import { Toast } from './atoms/Toast'
  
 import ResponsiveAppBar from './navbar'

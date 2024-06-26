@@ -25,7 +25,7 @@ import { MainContent } from '../MainContent/MainContent'
 import { ArbTokenBridgeStoreSync } from '../syncers/ArbTokenBridgeStoreSync'
 import { BalanceUpdater } from '../syncers/BalanceUpdater'
 import { TokenListSyncer } from '../syncers/TokenListSyncer'
-import { Header } from '../common/Header'
+ 
 import { HeaderAccountPopover } from '../common/HeaderAccountPopover'
 import { isNetwork, rpcURLs } from '../../util/networks'
 import {

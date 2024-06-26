@@ -13,7 +13,7 @@ import { useEffect, useState, useRef } from 'react'
 import logo from '/public/images/nexus/nexusLogoUncompressed.svg'
 import { usePathname } from 'next/navigation'
 import { HeaderAccountPopover } from './HeaderAccountPopover'
-import { Header } from './Header'
+ 
 import { addNexusChain, addHoleskyChain , addBaseSepoliaChain} from '../../util/metamask'
 
 import {
