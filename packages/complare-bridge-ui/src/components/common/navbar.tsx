@@ -10,7 +10,7 @@ import MenuIcon from '@mui/icons-material/Menu'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useEffect, useState, useRef } from 'react'
-import logo from '/public/images/nexus/nexusLogoUncompressed.svg'
+import logo from '/public/images/ArbitrumLogo.svg'
 import { usePathname } from 'next/navigation'
 import { HeaderAccountPopover } from './HeaderAccountPopover'
  
@@ -47,16 +47,17 @@ function ResponsiveAppBar({ wallet, marginBelow }: ResponsiveAppBarProps) {
         <Toolbar disableGutters>
           <Box
             sx={{
-              display: { xs: 'none', lg: 'flex' }
+              display: { xs: 'none', lg: 'flex' , justifyContent : "center" , alignItems : "center" }
             }}
           >
             <Image
               src={logo}
-              width={130}
-              height={130}
-              alt="web nexus logo"
-              className="sm:mr-16"
+              width={40}
+              height={40}
+              alt="web Complare logo"
+              className=" mr-2"
             />
+            <h1 className='text-3xl text-white  font-semibold'>Complare</h1>
           </Box>
           <Box
             sx={{
@@ -93,7 +94,7 @@ function ResponsiveAppBar({ wallet, marginBelow }: ResponsiveAppBarProps) {
               sx={{
                 display: { xs: 'block', lg: 'none' },
                 mt: '1px',
-
+             
                 backdropFilter: 'blur(5px)',
                 '& .MuiMenu-paper': {
                   backgroundColor: 'var(--mobile-menu-bg)',
@@ -104,84 +105,29 @@ function ResponsiveAppBar({ wallet, marginBelow }: ResponsiveAppBarProps) {
               {wallet && (
                 <MenuItem
                   sx={{
-                    transition: 'background 0.3s ease-in-out'
+                    transition: 'background 0.3s ease-in-out',
+                    width : "full",
+                 
+                    display : "flex",
+                    justifyContent : "center",
+                    alignItems : "center",
+              
                   }}
                 >
+                  <div className=' min-h-[30vh]'>
+
                   <HeaderAccountPopover />
+                  </div>
                 </MenuItem>
               )}
 
-              <Link href="/?destinationChain=nexus-orbit-chain&sourceChain=base-sepolia">
-                <MenuItem
-                  sx={{
-                    width: { sm: '80vw', xs: '90vw' },
-
-                    color: 'white',
-                    py: '8px',
-                    backdropFilter: 'blur(5px)',
-                    borderRadius: '8px',
-
-                    transition: 'background 0.3s ease-in-out',
-
-                    ':hover': {
-                      background: '#003F69'
-                    }
-                  }}
-                >
-                  Bridge
-                </MenuItem>
-              </Link>
-
-  
-
-              <Link href="https://docs.nexusnetwork.live/" target="_blank">
-                <MenuItem
-                  sx={{
-                    width: { sm: '80vw', xs: '90vw' },
-
-                    color: 'white',
-                    py: '8px',
-                    backdropFilter: 'blur(5px)',
-                    borderRadius: '8px',
-
-                    transition: 'background 0.3s ease-in-out',
-
-                    ':hover': {
-                      background: '#003F69'
-                    }
-                  }}
-                >
-                  Docs
-                </MenuItem>
-              </Link>
-
-              <Link href="https://www.nexusnetwork.live/" target="_blank">
-                <MenuItem
-                  sx={{
-                    width: { sm: '80vw', xs: '90vw' },
-
-                    color: 'white',
-                    py: '8px',
-                    backdropFilter: 'blur(5px)',
-                    borderRadius: '8px',
-
-                    transition: 'background 0.3s ease-in-out',
-
-                    ':hover': {
-                      background: '#003F69'
-                    }
-                  }}
-                >
-                  Website
-                </MenuItem>
-              </Link>
-
+           
               <MenuItem
                 sx={{
-                  width: { sm: '80vw', xs: '90vw' }
+                  width: { sm: '25vw', xs: '70vw'  }
                 }}
               >
-                <div className="mt-1 flex w-full items-center justify-center p-2 text-white">
+                <div className="mt-1 w-full items-center justify-center p-2 text-white flex ">
                   <div className="flex items-center  justify-between space-x-5 ">
                     <Link
                       href={'https://twitter.com/NexusNetwork_0x'}
@@ -231,36 +177,17 @@ function ResponsiveAppBar({ wallet, marginBelow }: ResponsiveAppBarProps) {
           >
             <Image
               src={logo}
-              width={130}
-              height={130}
-              alt="mobile nexus logo"
-              className=" -ml-12 "
+              width={40}
+              height={40}
+              alt="mobile Complare logo"
+              className=" mr-2"
             />
+            <h1 className='text-3xl text-white  font-semibold'>Complare</h1>
           </Box>
 
           {/* Web Links */}
           <Box sx={{ flexGrow: 1, display: { xs: 'none', lg: 'flex' } }}>
-            <div className="   flex  space-x-6  text-base  ">
-              <button className=" my-2 block  font-normal  capitalize   transition-all  duration-300  ease-in-out  hover:text-[#1377BB]">
-                <Link href="/?destinationChain=nexus-orbit-chain&sourceChain=base-sepolia">
-                  Bridge
-                </Link>
-              </button>
-
-    
-
-              <button className=" my-2 block  font-normal  capitalize   transition-all  duration-300  ease-in-out  hover:text-[#1377BB]">
-                <Link href="https://docs.nexusnetwork.live/" target="_blank">
-                  Docs
-                </Link>
-              </button>
-
-              <button className=" my-2 block  font-normal  capitalize   transition-all  duration-300  ease-in-out  hover:text-[#1377BB]">
-                <Link href="https://www.nexusnetwork.live/" target="_blank">
-                  Website
-                </Link>
-              </button>
-            </div>
+ 
           </Box>
 
           {wallet && (
@@ -270,7 +197,7 @@ function ResponsiveAppBar({ wallet, marginBelow }: ResponsiveAppBarProps) {
           )}
 
           {wallet && (
-            <Box sx={{ display: { xs: 'none', lg: 'flex' } }}>
+            <Box sx={{ display: { xs: 'none', lg: 'flex' } , width : "full" }}>
               <HeaderAccountPopover />
             </Box>
           )}

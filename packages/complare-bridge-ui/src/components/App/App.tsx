@@ -251,7 +251,7 @@ function AppContent() {
   if (!isConnected) {
     return (
          <Fade in={fadeIn} timeout={1000}> 
-      <div id='backgroundImage' className='h-screen'>
+      <div   className='h-screen'>
         <ResponsiveAppBar wallet={false}   marginBelow={"mb-26"} />
         <AppConnectionFallbackContainer>
         <div className="mt-4 flex w-full  items-center  justify-center">
@@ -282,7 +282,7 @@ function AppContent() {
 
   return (
      <Fade in={fadeIn} timeout={1000}> 
-    <div id='backgroundImage' className='h-full relative'>
+    <div  className='h-full relative'>
       <ResponsiveAppBar wallet={true}   marginBelow={"mb-16"} />
 
       <TokenListSyncer />

@@ -34,11 +34,11 @@ beforeAll(() => {
       ],
       confirmPeriodBlocks: 20,
       ethBridge: {
-        bridge: '0x2b360a9881f21c3d7aa0ea6ca0de2a3341d4ef3c',
-        inbox: '0xff4a24b22f94979e9ba5f3eb35838aa814bad6f1',
-        outbox: '0x49940929c7cA9b50Ff57a01d3a92817A414E6B9B',
-        rollup: '0x65a59d67da8e710ef9a01eca37f83f84aedec416',
-        sequencerInbox: '0xe7362d0787b51d8c72d504803e5b1d6dcda89540'
+        bridge: '0x4b3de56148d1815f8bAff01A8150d945A390FBb3',
+        inbox: '0x36d7B2a16240E5EF6c7388bEFF1aF47bbA652F3a',
+        outbox: '0x572Ed9db4630A22601d04731D21698A0c2153A8F',
+        rollup: '0x55E8D24c02fa6F8A486B329979068f9955A6962d',
+        sequencerInbox: '0x61F389d7f360840Cb353298e6b2fBf899F17D4E4'
       },
       explorerUrl: '',
       isArbitrum: true,

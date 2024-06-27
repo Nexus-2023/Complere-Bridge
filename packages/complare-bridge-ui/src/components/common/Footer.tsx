@@ -7,8 +7,8 @@ import Image from 'next/image'
 export const Footer = () => {
   return (
     <div className="mt-1 flex w-full items-center justify-center p-2 text-white">
-      <div className="   hidden  w-1/2 max-w-[600px] items-center     justify-between min-[900px]:flex">
-        <div>© 2024 Nexus Network, Inc.</div>
+      <div className="   hidden  w-1/2 max-w-[600px] items-center     justify-between min-[1200px]:flex">
+        <div>© 2024 Complare, Inc.</div>
 
         <div className="flex items-center  justify-between space-x-5 ">
           <Link

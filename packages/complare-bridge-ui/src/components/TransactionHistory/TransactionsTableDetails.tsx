@@ -6,7 +6,7 @@ import Image from 'next/image'
 import dayjs from 'dayjs'
 import CctpLogoColor from '@/images/CctpLogoColor.svg'
 import ArbitrumLogo from '@/images/ArbitrumLogo.svg'
-import NexusLogo from '@/images/nexus/nexusLogoCompressed.svg'
+import Logo from '/public/images/ArbitrumLogo.svg'
 import { useTxDetailsStore } from './TransactionHistory'
 import { getExplorerUrl, getNetworkName, isNetwork } from '../../util/networks'
 import { NetworkImage } from '../common/NetworkImage'
@@ -175,7 +175,7 @@ export const TransactionsTableDetails = ({
                   <div className="flex space-x-2">
                     <Image
                       alt="Bridge logo"
-                      src={tx.isCctp ? CctpLogoColor : NexusLogo}
+                      src={tx.isCctp ? CctpLogoColor : Logo}
                       width={16}
                       height={16}
                     />
@@ -188,7 +188,7 @@ export const TransactionsTableDetails = ({
                         </span>
                       </span>
                     ) : (
-                      <span>Nexus&apos;s native bridge</span>
+                      <span>Complare&apos;s native bridge</span>
                     )}
                   </div>
                 </DetailsBox>

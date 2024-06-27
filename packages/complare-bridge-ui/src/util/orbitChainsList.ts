@@ -342,13 +342,13 @@ export const orbitTestnets: { [key in number]: OrbitChainConfig } = {
   },
   13331370: {
     chainID: 13331370,
-    confirmPeriodBlocks: 150,
+    confirmPeriodBlocks: 20,
     ethBridge: {
-      bridge: '0x85deaBEa8c6b45ff1f21C128b1f6Ed971bC122b3',
-      inbox: '0x4cA0aF77F59949E338bcd878B809E01d50B96D00',
-      outbox: '0x411A39A8EEC80E63F29A98882aDF17Eb4636a490',
-      rollup: '0x1f36f44a377C0D48706F0726608724d1E884D5c7',
-      sequencerInbox: '0x2813f740FF6A6c09839951855CaDfA814129B6A9'
+      bridge: '0x4b3de56148d1815f8bAff01A8150d945A390FBb3',
+      inbox: '0x36d7B2a16240E5EF6c7388bEFF1aF47bbA652F3a',
+      outbox: '0x572Ed9db4630A22601d04731D21698A0c2153A8F',
+      rollup: '0x55E8D24c02fa6F8A486B329979068f9955A6962d',
+      sequencerInbox: '0x61F389d7f360840Cb353298e6b2fBf899F17D4E4'
     },
     nativeToken: '0x4e6f41acbfa8eb4a3b25e151834d9a14b49b69d2',
     explorerUrl: `${process.env.NEXT_PUBLIC_NEXUS_ORBIT_EXPLORER_URL || "null Explorer url"}`,
@@ -357,8 +357,8 @@ export const orbitTestnets: { [key in number]: OrbitChainConfig } = {
     isCustom: true,
     name: 'Nexus Orbit Chain',
     slug: 'nexus-orbit',
-    partnerChainID: 17000,
-    partnerChainIDs: [17000],
+    partnerChainID: 84532,
+    partnerChainIDs: [84532],
     retryableLifetimeSeconds: 604800,
     tokenBridge: {
       l1CustomGateway: '0x2fB2f4438E58Adf2317A8E01D7A9147c35E8B17C',
