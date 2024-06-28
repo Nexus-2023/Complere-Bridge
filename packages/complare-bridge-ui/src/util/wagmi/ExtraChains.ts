@@ -36,7 +36,7 @@ export var baseSepoliaChain: Chain = {
   id: 84532,
   network: 'Base Sepolia',
   name: 'Base Sepolia',
-  nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },
+  nativeCurrency: { name: 'Sepolia Ether', symbol: 'ETH', decimals: 18 },
   rpcUrls: {
     default: {
       http: [`https://base-sepolia-rpc.publicnode.com`]

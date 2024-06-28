@@ -86,9 +86,11 @@ export default async function handler(
     ${search ? `transactionHash_contains: "${search}"` : ''}
     `
 
-    let subgraphClient
+    let subgraphClient:any
     try {
       subgraphClient = getL1SubgraphClient(Number(l2ChainId))
+      
+      
     } catch (error: any) {
       // catch attempt to query unsupported networks and throw a 400
       res.status(400).json({
@@ -138,7 +140,8 @@ export default async function handler(
       }
     `)
     })
-
+ 
+    
     const transactions: FetchDepositsFromSubgraphResult[] =
       subgraphResult.data.deposits
 

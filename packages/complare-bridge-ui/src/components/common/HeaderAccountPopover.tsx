@@ -146,18 +146,6 @@ export function HeaderAccountPopover({
               </ExternalLink>
             )}
 
-            {/* Settings */}
-            {/* {isCorrectNetworkConnected && (
-              <button
-                className={headerItemsClassName}
-                onClick={() => setQueryParams({ settingsOpen: true })}
-              >
-                <Cog6ToothIcon className="h-3 w-3 text-white/60 sm:text-white" />
-                <span>Settings</span>
-              </button>
-            )} */}
-
-            {/* Disconnect button */}
             <button
               className={headerItemsClassName}
               onClick={() => disconnect()}

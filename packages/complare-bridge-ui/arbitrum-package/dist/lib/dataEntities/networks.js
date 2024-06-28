@@ -108,6 +108,15 @@ exports.networks = {
         depositTimeout: 1800000,
         blockTime: constants_1.ARB_MINIMUM_BLOCK_TIME_IN_SECONDS,
     },
+        17000: {
+        chainID: 17000,
+        name: 'holesky',
+        explorerUrl: 'https://holesky.etherscan.io',
+        partnerChainIDs: [13331370],
+        blockTime: 12,
+        isCustom: false,
+        isArbitrum: false,
+    },
     13331370: {
         chainID: 13331370,
         confirmPeriodBlocks: 20,

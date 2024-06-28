@@ -79,7 +79,7 @@
               ],
               chainName: 'Base Sepolia Testnet',
               nativeCurrency: {
-                name: 'ETHER',
+               name: 'Sepolia Ether',
                 symbol: 'ETH',
                 decimals: 18
               },

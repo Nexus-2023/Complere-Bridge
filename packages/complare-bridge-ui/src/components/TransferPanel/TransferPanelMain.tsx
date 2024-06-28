@@ -546,7 +546,7 @@ export function TransferPanelMain({
           <span>
             Gas estimation failed, join our{' '}
             <ExternalLink
-              href="https://discord.gg/wnTfyh6T"
+              href=""
               className="underline"
             >
               Discord
@@ -609,7 +609,8 @@ export function TransferPanelMain({
     }
 
     const destinationChains = getDestinationChains()
-
+   
+    
     return {
       from: {
         onChange: async network => {

@@ -1,3 +1,4 @@
+import { log } from 'console'
 import { hasL1Subgraph } from '../SubgraphUtils'
 import { getAPIBaseUrl, sanitizeQueryParams } from './../index'
 
@@ -72,6 +73,9 @@ export const fetchDepositsFromSubgraph = async ({
       search: searchString
     })
   )
+
+  
+   
 
   if (!hasL1Subgraph(Number(l2ChainId))) {
     throw new Error(`L1 subgraph not available for network: ${l2ChainId}`)
