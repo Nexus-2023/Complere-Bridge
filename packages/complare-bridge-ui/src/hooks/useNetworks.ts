@@ -18,7 +18,8 @@ import {
   stylusTestnet,
   localL1Network as local,
   localL2Network as arbitrumLocal,
-  nexusOrbit
+  nexusOrbit,
+  complare
 } from '../util/wagmi/wagmiAdditionalNetworks'
 
 import { getDestinationChainIds } from '../util/networks'
@@ -65,6 +66,7 @@ export function isSupportedChainId(
     holesky.id,
     baseSepolia.id,
     nexusOrbit.id,
+    complare.id,
     arbitrum.id,
     arbitrumNova.id,
     arbitrumSepolia.id,
@@ -89,22 +91,22 @@ export function sanitizeQueryParams({
   // when both `sourceChain` and `destinationChain` are undefined or invalid, default to Holesky and NexusOrbit
   if (
     (!sourceChainId && !destinationChainId) ||
-    (sourceChainId == 1 || 1337 || 11155111 || 42161 ||42170 ||421614 || 412346 ||23011913  || 17000  ) ||
-    (destinationChainId == 1 || 1337|| 11155111 || 42161 ||42170 ||421614 || 412346 || 23011913  || 17000  ) ||
+    (sourceChainId == 1 || 1337 || 11155111 || 42161 ||42170 ||421614 || 412346 ||23011913  || 17000 || 13331370 ) ||
+    (destinationChainId == 1 || 1337|| 11155111 || 42161 ||42170 ||421614 || 412346 || 23011913  || 17000 ||  13331370 ) ||
     (!isSupportedChainId(sourceChainId) &&
       !isSupportedChainId(destinationChainId))
   ) {
 
-    if (sourceChainId == 84532 && destinationChainId== 13331370) {
+    if (sourceChainId == 84532 ) {
       return {
         sourceChainId: ChainId.baseSepolia,
-        destinationChainId: ChainId.NexusOrbit
+        destinationChainId: ChainId.Complare
       }
     }
     else {
       return {
-        sourceChainId:ChainId.NexusOrbit ,
-        destinationChainId:    ChainId.baseSepolia
+        sourceChainId:ChainId.Complare ,
+        destinationChainId:ChainId.baseSepolia
       }
     }
 
@@ -127,7 +129,7 @@ export function sanitizeQueryParams({
     const [defaultDestinationChainId] = getDestinationChainIds(sourceChainId)
     return {
       sourceChainId: sourceChainId,
-      destinationChainId: ChainId.NexusOrbit
+      destinationChainId: ChainId.Complare
     }
   }
 
@@ -136,7 +138,7 @@ export function sanitizeQueryParams({
     const [defaultDestinationChainId] = getDestinationChainIds(sourceChainId!)
     return {
       sourceChainId: sourceChainId!,
-      destinationChainId: ChainId.NexusOrbit
+      destinationChainId: ChainId.Complare
     }
   }
 

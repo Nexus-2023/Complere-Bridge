@@ -1,6 +1,6 @@
 import { Html, Head, Main, NextScript } from 'next/document'
 
-export const siteTitle = 'Nexus Orbit Dapp'
+export const siteTitle = 'Complare Bridge'
 const siteDomain = 'https://testnet.app.nexusnetwork.live/?destinationChain=nexus-orbit-chain&sourceChain=holesky'
 const siteDescription =
   'Nexus Orbit Rollup , Enabling native yeilds on Arbitrum Rollup'
@@ -10,7 +10,7 @@ export default function Document() {
     <Html lang="en">
       <Head>
         <meta charSet="utf-8" />
-        <link rel="icon" href="/images/nexus/nexusLogoCompressed.svg" />
+        <link rel="icon" href="/images/ArbitrumLogo.svg" />
         <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 </style>

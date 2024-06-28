@@ -131,6 +131,7 @@ export enum ChainId {
   Holesky = 17000,
   NexusOrbit = 13331370,
   baseSepolia = 84532,
+  Complare= 5918836757,
   // L1
   Ethereum = 1,
   // L1 Testnets
@@ -185,6 +186,10 @@ export const rpcURLs: { [chainId: number]: string } = {
     env: process.env.NEXT_PUBLIC_NEXUS_ORBIT_RPC_URL,
     fallback: `${process.env.NEXT_PUBLIC_NEXUS_ORBIT_RPC_URL || "null rpc"}`
   }),
+  [ChainId.Complare]: loadEnvironmentVariableWithFallback({
+    env: process.env.NEXT_PUBLIC_L3_RPCL,
+    fallback: `${process.env.NEXT_PUBLIC_L3_EXPLORER || "null rpc"}`
+  }),
 
   [ChainId.baseSepolia]: loadEnvironmentVariableWithFallback({
     env: process.env.NEXT_PUBLIC_BASE_SEPOLIA_RPC_URL,
@@ -208,7 +213,8 @@ export const explorerUrls: { [chainId: number]: string } = {
   // Orbit Testnets
   [ChainId.StylusTestnet]: 'https://stylus-testnet-explorer.arbitrum.io',
   [ChainId.NexusOrbit]: `${process.env.NEXT_PUBLIC_NEXUS_ORBIT_EXPLORER_URL || "https://testnet.explorer.nexusnetwork.live"}`,
-    [ChainId.baseSepolia]: `${process.env. NEXT_PUBLIC_BASE_SEPOLIA_EXPLORER || "https://base-sepolia.blockscout.com"}`
+    [ChainId.baseSepolia]: `${process.env.NEXT_PUBLIC_BASE_SEPOLIA_EXPLORER || "https://base-sepolia.blockscout.com"}`,
+    [ChainId.Complare]: `${process.env.NEXT_PUBLIC_L3_EXPLORER || "https://base-sepolia.blockscout.com"}`
   
 }
 
@@ -356,7 +362,7 @@ export function isNetwork(chainId: ChainId) {
   const isBaseSepolia = chainId === ChainId.baseSepolia
   const isLocal = chainId === ChainId.Local
   const isNexusOrbit = chainId === ChainId.NexusOrbit
-
+  const isComplare = chainId === ChainId.Complare
   const isArbitrumOne = chainId === ChainId.ArbitrumOne
   const isArbitrumNova = chainId === ChainId.ArbitrumNova
   const isArbitrumSepolia = chainId === ChainId.ArbitrumSepolia
@@ -372,7 +378,8 @@ export function isNetwork(chainId: ChainId) {
     // isArbitrumNova ||
     // isArbitrumLocal ||
     // isArbitrumSepolia ||
-    isNexusOrbit
+    // isNexusOrbit
+    isComplare
 
   const customChainIds = customChains.map(chain => chain.chainID)
   const isCustomOrbitChain = customChainIds.includes(chainId)
@@ -385,7 +392,8 @@ export function isNetwork(chainId: ChainId) {
     // isArbitrumLocal ||
     // isSepolia ||
     isBaseSepolia ||
-    isNexusOrbit
+    isComplare
+    // isNexusOrbit
     // isArbitrumSepolia ||
     // isCustomOrbitChain ||
     // isStylusTestnet ||
@@ -401,7 +409,8 @@ export function isNetwork(chainId: ChainId) {
     isMainnetOrbitChain ||
     isTestnetOrbitChain ||
     isBaseSepolia ||
-    isNexusOrbit
+    isComplare ||
+    isNexusOrbit 
 
   return {
     // L1
@@ -417,6 +426,7 @@ export function isNetwork(chainId: ChainId) {
     // L2 Testnets
     isArbitrumSepolia,
     isNexusOrbit,
+    isComplare,
     // Orbit chains
     isOrbitChain,
     isTestnet,

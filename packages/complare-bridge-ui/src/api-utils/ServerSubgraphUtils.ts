@@ -162,6 +162,10 @@ export function getL1SubgraphClient(l2ChainId: number) {
 
     case ChainId.Holesky:
       return createApolloClient('https://api.studio.thegraph.com/proxy/55613/l1_holesky_orbit/version/latest')
+
+      case ChainId.baseSepolia:
+        return createApolloClient(`${process.env.NEXT_PUBLIC_BASESEPOLIA_LAYER1_SUBGRAPH} || "subgraph not found"`)
+
     default:
       throw new Error(`[getL1SubgraphClient] unsupported chain: ${l2ChainId}`)
   }
@@ -177,6 +181,9 @@ export function getL2SubgraphClient(l2ChainId: number) {
 
     case ChainId.NexusOrbit:
       return createApolloClient('https://testnet.graph.nexusnetwork.live/subgraphs/name/umer/layer2-token-gateway-nexus/graphql')
+
+      case ChainId.Complare:
+        return createApolloClient(`${process.env.NEXT_PUBLIC_COMPLARE_LAYER2_SUBGRAPH} || "subgraph not found"`)
 
     default:
       throw new Error(`[getL2SubgraphClient] unsupported chain: ${l2ChainId}`)

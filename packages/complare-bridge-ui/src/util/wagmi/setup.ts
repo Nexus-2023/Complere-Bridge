@@ -13,7 +13,8 @@ import {
   localL2Network as arbitrumLocal,
   nexusOrbit,
   holesky,
-  baseSepolia
+  baseSepolia,
+  complare
 } from './wagmiAdditionalNetworks'
 import { isTestingEnvironment } from '../CommonUtils'
 import { getCustomChainsFromLocalStorage, ChainId } from '../networks'
@@ -47,11 +48,13 @@ const chainList = isTestingEnvironment
       local,
       arbitrumLocal,
       nexusOrbit,
+      complare,
       // user-added custom chains
       ...customChains
     ]
   : [
     baseSepolia,
+    complare,
       mainnet,
       arbitrum,
       holesky,
@@ -82,7 +85,8 @@ enum TargetChainKey {
   ArbitrumSepolia = 'arbitrum-sepolia' ,
   Nexus_Orbit = "nexus-orbit",
   Holesky = "holesky",
-  baseSepolia = "base-sepolia"
+  baseSepolia = "base-sepolia" ,
+  Complare = "complare-chain"
 }
 
 function sanitizeTargetChainKey(targetChainKey: string | null): TargetChainKey {
@@ -125,7 +129,10 @@ function getChainId(targetChainKey: TargetChainKey): number {
 
     case TargetChainKey.Holesky:
       return ChainId.Holesky
-
+      case TargetChainKey.Complare
+      :
+        return ChainId.Complare
+   
       default :
       return 0
   }

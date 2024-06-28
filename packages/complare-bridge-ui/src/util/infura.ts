@@ -62,20 +62,19 @@ export function chainIdToInfuraKey(chainId: ChainId) {
     case ChainId.ArbitrumOne:
       return process.env.NEXT_PUBLIC_INFURA_KEY_ARBITRUM_ONE || defaultInfuraKey
 
- 
-        
     case ChainId.ArbitrumSepolia:
       return (
         process.env.NEXT_PUBLIC_INFURA_KEY_ARBITRUM_SEPOLIA || defaultInfuraKey
       )
-      case ChainId.NexusOrbit:
-        return `${process.env.NEXT_PUBLIC_NEXUS_ORBIT_RPC_URL || "null rpc"}`
+    case ChainId.NexusOrbit:
+      return `${process.env.NEXT_PUBLIC_NEXUS_ORBIT_RPC_URL || 'null rpc'}`
 
-        case ChainId.baseSepolia:
-          return `${process.env.NEXT_PUBLIC_BASE_SEPOLIA_RPC_URL || "null rpc"}`
-
-        case ChainId.Holesky:
-          return `https://ethereum-holesky-rpc.publicnode.com`
+    case ChainId.baseSepolia:
+      return `${process.env.NEXT_PUBLIC_BASE_SEPOLIA_RPC_URL || 'null rpc'}`
+    case ChainId.Complare:
+      return `${process.env.NEXT_PUBLIC_L3_RPC || 'null rpc'}`
+    case ChainId.Holesky:
+      return `https://ethereum-holesky-rpc.publicnode.com`
     default:
       return defaultInfuraKey
   }
@@ -95,14 +94,15 @@ export function chainIdToInfuraUrl(chainId: ChainId) {
       return `https://arbitrum-sepolia.infura.io/v3/${infuraKey}`
 
     case ChainId.NexusOrbit:
-      return `${process.env.NEXT_PUBLIC_NEXUS_ORBIT_RPC_URL || "null rpc"}`
-      
-        case ChainId.baseSepolia:
-          return `${process.env.NEXT_PUBLIC_BASE_SEPOLIA_RPC_URL || "null rpc"}`
-      
+      return `${process.env.NEXT_PUBLIC_NEXUS_ORBIT_RPC_URL || 'null rpc'}`
+    case ChainId.Complare:
+      return `${process.env.NEXT_PUBLIC_L3_RPC || 'null rpc'}`
+    case ChainId.baseSepolia:
+      return `${process.env.NEXT_PUBLIC_BASE_SEPOLIA_RPC_URL || 'null rpc'}`
+
     case ChainId.Holesky:
       return `https://ethereum-holesky-rpc.publicnode.com`
-      
+
     default:
       return undefined
   }

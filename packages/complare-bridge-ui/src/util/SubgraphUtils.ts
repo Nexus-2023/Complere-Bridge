@@ -7,6 +7,7 @@ export function hasL1Subgraph(l2ChainId: number) {
     case ChainId.ArbitrumNova:
     case ChainId.ArbitrumSepolia:
     case ChainId.Holesky:
+      case ChainId.baseSepolia:
       return true
 
     default:
@@ -19,6 +20,7 @@ export function hasL2Subgraph(l2ChainId: number) {
     case ChainId.ArbitrumOne:
     case ChainId.ArbitrumSepolia:
     case ChainId.NexusOrbit:
+      case ChainId.Complare:
       return true
 
     default:

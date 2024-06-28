@@ -128,6 +128,18 @@ export function getBridgeUiConfigForChain(chainId: number): BridgeUiConfig {
               'Nexus Network Orbit chain'
           }
         }
+
+        case ChainId.Complare:
+          return {
+            color: '#000000',
+            network: {
+              name: 'Complare Chain',
+              logo: '/images/ArbitrumOneLogo.svg',
+           
+              description:
+                'Complare Chain which is the child of a base chain'
+            }
+          }
     default: {
       // added Orbit chains
       const orbitChain = orbitChains[chainId]

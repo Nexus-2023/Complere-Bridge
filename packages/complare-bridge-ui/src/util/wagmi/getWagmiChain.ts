@@ -11,7 +11,8 @@ import {
   stylusTestnet,
   localL1Network,
   localL2Network,
-  nexusOrbit
+  nexusOrbit,
+  complare,
 } from './wagmiAdditionalNetworks'
 import { ChainId } from '../networks'
 import { getCustomChainFromLocalStorageById } from '../networks'
@@ -41,6 +42,9 @@ export function getWagmiChain(chainId: number): Chain {
   
     case ChainId.NexusOrbit:
         return  nexusOrbit
+
+        case ChainId.Complare:
+        return  complare   
 
     case ChainId.Ethereum:
       return mainnet

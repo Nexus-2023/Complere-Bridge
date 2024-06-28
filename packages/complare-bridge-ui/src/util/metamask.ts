@@ -32,7 +32,40 @@ export async function addNexusChain() {
       console.log(error)
     }
   }
-
+  export async function addComplareChain() {
+    try {
+      if (typeof window.ethereum !== 'undefined') {
+        const result = await window.ethereum.request({
+          method: 'wallet_addEthereumChain',
+          params: [
+            {
+              chainId: '0x160CA4815',
+              rpcUrls: [
+                `${process.env.NEXT_PUBLIC_L3_RPC || 'null rpc'}`
+              ],
+              chainName: 'complare-chain',
+              nativeCurrency: {
+                name: 'ETHER',
+                symbol: 'ETH',
+                decimals: 18
+              },
+              blockExplorerUrls: [
+                `${
+                  process.env.NEXT_PUBLIC_L3_EXPLORER ||
+                  'null Explorer url'
+                }`
+              ]
+            }
+          ]
+        })
+        console.log('Metamask is installed')
+      } else {
+        console.log('Metamask is not installed')
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   export async function addHoleskyChain() {
     try {

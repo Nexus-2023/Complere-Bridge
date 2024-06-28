@@ -86,6 +86,28 @@ export const baseSepolia: Chain = {
   }
 }
 
+export const complare: Chain = {
+  id: ChainId.Complare,
+  name: 'complare-chain',
+  network: 'complare-chain',
+  nativeCurrency: ether,
+  rpcUrls: {
+    default: {
+      http: [rpcURLs[ChainId.Complare]!]
+    },
+    public: {
+      http: [rpcURLs[ChainId.Complare]!]
+    }
+  },
+  blockExplorers: {
+    etherscan: {
+      name: 'Etherscan',
+      url: explorerUrls[ChainId.Complare]!
+    },
+    default: { name: 'blockScout', url: explorerUrls[ChainId.Complare]! }
+  }
+}
+
 export const arbitrumSepolia: Chain = {
   id: ChainId.ArbitrumSepolia,
   name: 'Arbitrum Sepolia',
