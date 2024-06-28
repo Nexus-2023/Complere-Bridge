@@ -40,8 +40,8 @@ export function getWagmiChain(chainId: number): Chain {
       case ChainId.baseSepolia:
         return baseSepolia
   
-    case ChainId.NexusOrbit:
-        return  nexusOrbit
+        case ChainId.NexusOrbit:
+          return  nexusOrbit
 
         case ChainId.Complare:
         return  complare   

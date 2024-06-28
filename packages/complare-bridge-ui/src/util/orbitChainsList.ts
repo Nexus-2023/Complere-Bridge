@@ -350,9 +350,9 @@ export const orbitTestnets: { [key in number]: OrbitChainConfig } = {
       rollup: '0x637677A8120ABdcdF06B0706AB1E8201d433A799',
       sequencerInbox: '0xCe4DA52c9dD9BBe5d3e13Ee72BcBe38EbF521574',
     },
-    nativeToken: '0x4e6f41acbfa8eb4a3b25e151834d9a14b49b69d2',
-    explorerUrl: `${process.env.NEXT_PUBLIC_L3_EXPLORER || "https://sepolia.basescan.org/"}`,
-    rpcUrl: `${process.env.NEXT_PUBLIC_L3_RPC || "null rpc"}`,
+    nativeToken: '0x0000000000000000000000000000000000000000',
+    explorerUrl: `http://13.215.193.212/`,
+    rpcUrl: `http://52.221.196.153:8449`,
     isArbitrum: true,
     isCustom: true,
     name: 'complare-chain',
@@ -385,7 +385,7 @@ export const orbitTestnets: { [key in number]: OrbitChainConfig } = {
       network: {
         name: 'complare-chain',
         logo: '/images/ArbitrumLogo.svg',
-        description: 'complare chain'
+        description: 'complare-chain'
       },
       nativeTokenData: {
         name: 'Ether',

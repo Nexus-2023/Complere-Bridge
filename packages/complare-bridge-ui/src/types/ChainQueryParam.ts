@@ -80,7 +80,7 @@ export function getChainQueryParamForChain(chainId: ChainId): ChainQueryParam {
       return 'base-sepolia'
 
     case ChainId.Complare:
-      return ' complare-chain'
+      return 'complare-chain'
 
     case ChainId.NexusOrbit:
       return 'nexus-orbit-chain'

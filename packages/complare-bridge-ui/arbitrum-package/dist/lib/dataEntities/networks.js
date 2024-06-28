@@ -64,7 +64,7 @@ exports.networks = {
     84532: {
         chainID: 84532,
         name: 'Base Sepolia',
-        explorerUrl: 'https://base-sepolia-rpc.publicnode.com',
+        explorerUrl: 'https://base-sepolia.blockscout.com/',
         partnerChainIDs: [5918836757],
         blockTime: 12,
         isCustom: false,
@@ -80,7 +80,7 @@ exports.networks = {
             rollup: '0x637677A8120ABdcdF06B0706AB1E8201d433A799',
             sequencerInbox: '0xCe4DA52c9dD9BBe5d3e13Ee72BcBe38EbF521574',
         },
-        explorerUrl: `${process.env.NEXT_PUBLIC_L3_EXPLORER || "null Explorer url"}`,
+        explorerUrl: `http://13.215.193.212/`,
         isArbitrum: true,
         isCustom: true,
         name: 'complare-chain',

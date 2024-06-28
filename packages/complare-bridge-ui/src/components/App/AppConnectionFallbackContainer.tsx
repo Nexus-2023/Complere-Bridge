@@ -8,7 +8,7 @@ import Image from 'next/image'
 import {
   AddChainButton,
   AddHoleskyButton,
-  AddNexusButton
+ 
 } from '../common/AddChain'
 
 function WalletConnectWarning() {

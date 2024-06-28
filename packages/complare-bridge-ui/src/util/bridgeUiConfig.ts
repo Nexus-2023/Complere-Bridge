@@ -117,17 +117,7 @@ export function getBridgeUiConfigForChain(chainId: number): BridgeUiConfig {
         }
       }
 
-      case ChainId.NexusOrbit:
-        return {
-          color: '#000000',
-          network: {
-            name: 'Nexus Orbit',
-            logo: '/images/nexus/nexusLogoCompressed.svg',
-         
-            description:
-              'Nexus Network Orbit chain'
-          }
-        }
+ 
 
         case ChainId.Complare:
           return {

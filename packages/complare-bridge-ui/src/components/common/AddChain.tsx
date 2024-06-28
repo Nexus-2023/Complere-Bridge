@@ -1,5 +1,5 @@
 import React from 'react'
-import { addHoleskyChain, addNexusChain , addBaseSepoliaChain, addComplareChain } from '../../util/metamask'
+import { addHoleskyChain, addBaseSepoliaChain, addComplareChain } from '../../util/metamask'
 import { Button } from '@mui/material'
 import { useNetworks } from '../../hooks/useNetworks'
 import { useNetworksRelationship } from '../../hooks/useNetworksRelationship'
@@ -29,29 +29,7 @@ export const AddChainButton = () => {
     </div>
   )
 }
-
-export const AddNexusButton = () => {
-  return (
-    <div>
-      <Button
-        className="   rounded-lg    border-2 text-sm   font-medium hover:border-2       "
-        onClick={addNexusChain}
-        variant="outlined"
-        sx={{ color: '#1377BB' }}
-        title="add testnet nexus network chain to your metamask"
-      >
-        <Image
-          src={MetamaskLogo}
-          width={25}
-          height={25}
-          alt="metamask logo"
-          className="mr-2"
-        />
-        Add Nexus
-      </Button>
-    </div>
-  )
-}
+ 
 
 export const AddBaseSepoliaButton = () => {
   return (

@@ -153,7 +153,7 @@ export function TransferPanel() {
   const { isEOA, isSmartContractWallet } = useAccountType()
 
    
-  // 13331370 nexus  , 42161 arbitrum one , 11155111 sepolia
+  
   const { data: l1Signer } = useSigner({
     chainId: parentChain.id
   })

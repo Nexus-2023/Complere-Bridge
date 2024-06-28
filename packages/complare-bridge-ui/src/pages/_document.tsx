@@ -3,7 +3,7 @@ import { Html, Head, Main, NextScript } from 'next/document'
 export const siteTitle = 'Complare Bridge'
 const siteDomain = 'https://testnet.app.nexusnetwork.live/?destinationChain=nexus-orbit-chain&sourceChain=holesky'
 const siteDescription =
-  'Nexus Orbit Rollup , Enabling native yeilds on Arbitrum Rollup'
+  ' Complare Bridge Dapp'
 
 export default function Document() {
   return (

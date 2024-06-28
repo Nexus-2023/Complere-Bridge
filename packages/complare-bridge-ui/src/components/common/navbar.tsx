@@ -13,14 +13,10 @@ import { useEffect, useState, useRef } from 'react'
 import logo from '/public/images/ArbitrumLogo.svg'
 import { usePathname } from 'next/navigation'
 import { HeaderAccountPopover } from './HeaderAccountPopover'
- 
-import { addNexusChain, addHoleskyChain , addBaseSepoliaChain} from '../../util/metamask'
 
-import {
-  AddChainButton,
-  AddHoleskyButton,
-  AddNexusButton
-} from '../common/AddChain'
+import { addHoleskyChain, addBaseSepoliaChain } from '../../util/metamask'
+
+import { AddChainButton, AddHoleskyButton } from '../common/AddChain'
 interface ResponsiveAppBarProps {
   wallet: Boolean
 
@@ -47,7 +43,12 @@ function ResponsiveAppBar({ wallet, marginBelow }: ResponsiveAppBarProps) {
         <Toolbar disableGutters>
           <Box
             sx={{
-              display: { xs: 'none', lg: 'flex' , justifyContent : "center" , alignItems : "center" }
+              display: {
+                xs: 'none',
+                lg: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center'
+              }
             }}
           >
             <Image
@@ -57,7 +58,7 @@ function ResponsiveAppBar({ wallet, marginBelow }: ResponsiveAppBarProps) {
               alt="web Complare logo"
               className=" mr-2"
             />
-            <h1 className='text-3xl text-white  font-semibold'>Complare</h1>
+            <h1 className="text-3xl font-semibold  text-white">Complare</h1>
           </Box>
           <Box
             sx={{
@@ -94,7 +95,7 @@ function ResponsiveAppBar({ wallet, marginBelow }: ResponsiveAppBarProps) {
               sx={{
                 display: { xs: 'block', lg: 'none' },
                 mt: '1px',
-             
+
                 backdropFilter: 'blur(5px)',
                 '& .MuiMenu-paper': {
                   backgroundColor: 'var(--mobile-menu-bg)',
@@ -106,31 +107,28 @@ function ResponsiveAppBar({ wallet, marginBelow }: ResponsiveAppBarProps) {
                 <MenuItem
                   sx={{
                     transition: 'background 0.3s ease-in-out',
-                    width : "full",
-                 
-                    display : "flex",
-                    justifyContent : "center",
-                    alignItems : "center",
-              
+                    width: 'full',
+
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center'
                   }}
                 >
-                  <div className=' min-h-[30vh]'>
-
-                  <HeaderAccountPopover />
+                  <div className=" min-h-[30vh]">
+                    <HeaderAccountPopover />
                   </div>
                 </MenuItem>
               )}
 
-           
               <MenuItem
                 sx={{
-                  width: { sm: '25vw', xs: '70vw'  }
+                  width: { sm: '25vw', xs: '70vw' }
                 }}
               >
-                <div className="mt-1 w-full items-center justify-center p-2 text-white flex ">
+                <div className="mt-1 flex w-full items-center justify-center p-2 text-white ">
                   <div className="flex items-center  justify-between space-x-5 ">
                     <Link
-                      href={'https://twitter.com/NexusNetwork_0x'}
+                      href={''}
                       target="_blank"
                       className="mb-2 text-sm transition-all duration-300 ease-in-out  hover:scale-110  sm:text-lg"
                       title="Twitter"
@@ -138,16 +136,16 @@ function ResponsiveAppBar({ wallet, marginBelow }: ResponsiveAppBarProps) {
                       <XIcon />
                     </Link>
                     <Link
-                      href={'https://nexusnetwork0x.substack.com/'}
+                      href={''}
                       target="_blank"
                       className="mb-2 text-sm transition-all duration-300 ease-in-out  hover:scale-110  sm:text-lg"
-                      title="Nexus Blog"
+                      title="Blog"
                     >
                       <ArticleIcon />
                     </Link>
 
                     <Link
-                      href={'https://discord.gg/wnTfyh6T'}
+                      href={''}
                       target="_blank"
                       className="mb-2 text-sm transition-all duration-300   ease-in-out  hover:scale-110  sm:text-lg"
                       title="Discord Server"
@@ -182,13 +180,11 @@ function ResponsiveAppBar({ wallet, marginBelow }: ResponsiveAppBarProps) {
               alt="mobile Complare logo"
               className=" mr-2"
             />
-            <h1 className='text-3xl text-white  font-semibold'>Complare</h1>
+            <h1 className="text-3xl font-semibold  text-white">Complare</h1>
           </Box>
 
           {/* Web Links */}
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', lg: 'flex' } }}>
- 
-          </Box>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', lg: 'flex' } }}></Box>
 
           {wallet && (
             <div className="mr-4  flex w-full  max-w-max  items-center   justify-end ">
@@ -197,7 +193,7 @@ function ResponsiveAppBar({ wallet, marginBelow }: ResponsiveAppBarProps) {
           )}
 
           {wallet && (
-            <Box sx={{ display: { xs: 'none', lg: 'flex' } , width : "full" }}>
+            <Box sx={{ display: { xs: 'none', lg: 'flex' }, width: 'full' }}>
               <HeaderAccountPopover />
             </Box>
           )}

@@ -39,20 +39,20 @@ export var baseSepoliaChain: Chain = {
   nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },
   rpcUrls: {
     default: {
-      http: [`${process.env.NEXT_PUBLIC_BASE_SEPOLIA_RPC_URL}`]
+      http: [`https://base-sepolia-rpc.publicnode.com`]
     },
     public: {
-      http: [`${process.env.NEXT_PUBLIC_BASE_SEPOLIA_RPC_URL}`]
+      http: [`https://base-sepolia-rpc.publicnode.com`]
     }
   },
   blockExplorers: {
     etherscan: {
       name: 'BlockScout',
-      url: `${process.env.NEXT_PUBLIC_BASE_SEPOLIA_EXPLORER}`
+      url: `https://base-sepolia.blockscout.com/`
     },
     default: {
       name: 'BlockScout',
-      url: `${process.env.NEXT_PUBLIC_BASE_SEPOLIA_EXPLORER}`
+      url: `https://base-sepolia.blockscout.com/`
     }
   },
   contracts: {
@@ -71,26 +71,26 @@ export var complareChain: Chain = {
   nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },
   rpcUrls: {
     default: {
-      http: [`${process.env.NEXT_PUBLIC_L3_RPC}`]
+      http: ["http://52.221.196.153:8449"]
     },
     public: {
-      http: [`${process.env.NEXT_PUBLIC_L3_RPC}`]
+      http: ["http://52.221.196.153:8449"]
     }
   },
   blockExplorers: {
     etherscan: {
       name: 'BlockScout',
-      url: `${process.env.NEXT_PUBLIC_L3_EXPLORER}`
+      url: `http://13.215.193.212/`
     },
     default: {
       name: 'BlockScout',
-      url: `${process.env.NEXT_PUBLIC_L3_EXPLORER}`
+      url: `http://13.215.193.212/`
     }
   },
   contracts: {
     multicall3: {
       address: '0xcA11bde05977b3631167028862bE2a173976CA11',
-      blockCreated: 1059647
+      blockCreated: 5
     }
   },
   testnet: true

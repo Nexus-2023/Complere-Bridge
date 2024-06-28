@@ -400,17 +400,17 @@ export function isNetwork(chainId: ChainId) {
     // isTestnetOrbitChain ||
 
   const isSupported =
-    isArbitrumOne ||
-    isArbitrumNova ||
-    isEthereumMainnet ||
-    isSepolia ||
-    isArbitrumSepolia ||
-    isCustomOrbitChain ||
-    isMainnetOrbitChain ||
-    isTestnetOrbitChain ||
+    // isArbitrumOne ||
+    // isArbitrumNova ||
+    // isEthereumMainnet ||
+    // isSepolia ||
+    // isArbitrumSepolia ||
+    // isCustomOrbitChain ||
+    // isMainnetOrbitChain ||
+    // isTestnetOrbitChain ||
+    //isNexusOrbit 
     isBaseSepolia ||
-    isComplare ||
-    isNexusOrbit 
+    isComplare  
 
   return {
     // L1

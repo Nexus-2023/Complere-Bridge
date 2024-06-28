@@ -47,7 +47,7 @@ const chainList = isTestingEnvironment
       // add local environments during testing
       local,
       arbitrumLocal,
-      nexusOrbit,
+      // nexusOrbit,
       complare,
       // user-added custom chains
       ...customChains
