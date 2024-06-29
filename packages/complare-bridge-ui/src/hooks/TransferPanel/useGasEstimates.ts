@@ -36,10 +36,8 @@ async function fetcher([
   }
 
   if (isDeposit) {
-    console.log(
-      "typeof tokenParentChainAddress === 'string'",
-      typeof tokenParentChainAddress === 'string'
-    )
+ 
+ 
 
     return typeof tokenParentChainAddress === 'string'
       ? await depositTokenEstimateGas({

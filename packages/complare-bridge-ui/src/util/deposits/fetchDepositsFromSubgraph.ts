@@ -87,7 +87,8 @@ export const fetchDepositsFromSubgraph = async ({
     method: 'GET',
     headers: { 'Content-Type': 'application/json' }
   })
-
+  // console.log("deposit response" ,await response.json());
+  
   const transactions: FetchDepositsFromSubgraphResult[] = (
     await response.json()
   ).data

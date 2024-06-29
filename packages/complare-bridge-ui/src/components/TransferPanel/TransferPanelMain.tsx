@@ -279,8 +279,7 @@ function TokenBalance({
 }) {
   const isParentChain = on === NetworkType.l1
 
-  // console.log("forToken" , forToken);
-  // console.log("!balance" , !balance);
+ 
   if (!forToken) {
     return null
   }
@@ -441,7 +440,7 @@ export function TransferPanelMain({
     setOneNovaTransferDestinationNetworkId
   ] = useState<number | null>(null)
   const selectedTokenBalances = useSelectedTokenBalances()
-  console.log("selectedTokenBalances", selectedTokenBalances);
+ 
   
 
   const isMaxAmount = amount === AmountQueryParamEnum.MAX

@@ -495,15 +495,14 @@ export function getDestinationChainIds(chainId: ChainId): ChainId[] {
     : undefined
 
  
-    console.log("chainId" , chainId);
-
+  
     if (chainId === 84532) {
       return [5918836757]
     }
 
   const validDestinationChainIds =
     chains.find(chain => chain.chainID === chainId)?.partnerChainIDs || []
-    console.log("validDestinationChainIds" , validDestinationChainIds);
+ 
   if (parentChainId) {
     // always make parent chain the first element
     return [parentChainId, ...validDestinationChainIds]

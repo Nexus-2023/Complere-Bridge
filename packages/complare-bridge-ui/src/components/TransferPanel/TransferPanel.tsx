@@ -276,21 +276,21 @@ export function TransferPanel() {
 
       return type
     }
-    console.log('log1')
+   
     // Check if we need to show `TokenDepositCheckDialog` for first-time bridging
     const dialogType = getDialogType()
-    console.log('log2')
+    
 
     if (dialogType) {
       setTokenDepositCheckDialogType(dialogType)
-      console.log('log3')
+     
       const waitForInput = openTokenCheckDialog()
       const [confirmed] = await waitForInput()
 
       if (confirmed) {
-        console.log('log4')
+      
         transfer()
-        console.log('log5')
+        
       }
     } else {
       transfer()
@@ -336,7 +336,7 @@ export function TransferPanel() {
         l1Signer
       })
 
-      console.log('approveCustomFeeTokenTx ', approveCustomFeeTokenTx)
+    
 
       await approveCustomFeeTokenTx.wait()
     }
@@ -371,7 +371,7 @@ export function TransferPanel() {
       childChainProvider
     })
 
-    console.log('l1Gateway ', l1Gateway)
+    
 
     const customFeeTokenAllowanceForL1Gateway = await fetchErc20Allowance({
       address: l2Network.nativeToken,
@@ -665,8 +665,7 @@ export function TransferPanel() {
         'chainId !== networks.sourceChain.id',
         chainId !== networks.sourceChain.id
       )
-      // console.log('chainId', chainId)
-      // console.log('networks.sourceChain.id', networks.sourceChain.id)
+ 
 
       if (chainId !== networks.sourceChain.id) {
         await switchNetworkAsync?.(networks.sourceChain.id)
@@ -885,7 +884,7 @@ export function TransferPanel() {
             }
           })
 
-          console.log('r', r)
+       
         }
       } else {
         if (!l2Signer) {

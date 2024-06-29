@@ -85,6 +85,9 @@ export async function fetchWithdrawalsFromSubgraph({
     }
   )
 
+  // console.log("withdraw response" ,await response.json());
+  
+
   const transactions: FetchWithdrawalsFromSubgraphResult[] = (
     await response.json()
   ).data

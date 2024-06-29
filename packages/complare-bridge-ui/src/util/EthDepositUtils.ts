@@ -21,7 +21,7 @@ async function customFeeTokenAllowanceIsInsufficient(
 ) {
   const { amount, address, parentChainProvider, childChainProvider } = params
   const l2Network = await getL2Network(childChainProvider)
- console.log("l2Network" , l2Network);
+ 
  
   if (typeof l2Network.nativeToken === 'undefined') {
     throw new Error(
@@ -35,7 +35,7 @@ async function customFeeTokenAllowanceIsInsufficient(
     spender: l2Network.ethBridge.inbox
   })
   
-  console.log("customFeeTokenAllowanceForInbox" , customFeeTokenAllowanceForInbox);
+ 
   return customFeeTokenAllowanceForInbox.lt(amount)
 }
 
@@ -52,11 +52,8 @@ export async function depositEthEstimateGas(
 
   const customFeeToken = typeof ethBridger.nativeToken !== 'undefined'
 
-  console.log("customFeeToken" , customFeeToken);
+  
  
-
-   
-
   // if (customFeeToken && (await customFeeTokenAllowanceIsInsufficient(params))) {
   //   return fetchFallbackGasEstimatesForOrbitChainWithCustomFeeToken()
   // }

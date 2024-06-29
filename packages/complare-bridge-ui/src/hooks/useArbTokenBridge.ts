@@ -204,7 +204,7 @@ export const useArbTokenBridge = (
         l1Signer,
         overrides: { gasLimit: percentIncrease(gasLimit, BigNumber.from(5)) }
       })
-      console.log('tx', tx)
+     
 
       if (txLifecycle?.onTxSubmit) {
         txLifecycle.onTxSubmit(tx)
@@ -258,7 +258,7 @@ export const useArbTokenBridge = (
     })
 
     const receipt = await tx.wait()
-    console.log('receipt', receipt)
+   
 
     if (txLifecycle?.onTxConfirm) {
       txLifecycle.onTxConfirm(receipt)
@@ -299,15 +299,14 @@ export const useArbTokenBridge = (
         overrides: { gasLimit: percentIncrease(gasLimit, BigNumber.from(30)) }
       })
 
-      console.log("withdrawalRequest" ,withdrawalRequest);
-      console.log("tx" ,tx);
+  
      
       
-      console.log("txLifecycle?.onTxSubmit" ,txLifecycle?.onTxSubmit);
+      
    
      
       if (txLifecycle?.onTxSubmit) {
-        console.log("txLifecycle.onTxSubmit(tx)" ,txLifecycle.onTxSubmit(tx));
+    
         txLifecycle.onTxSubmit(tx)
       }
 
@@ -333,10 +332,10 @@ export const useArbTokenBridge = (
       })
 
       const receipt = await tx.wait()
-      console.log("receipt " ,receipt );
+    
       if (txLifecycle?.onTxConfirm) {
         txLifecycle.onTxConfirm(receipt)
-        console.log("  txLifecycle.onTxConfirm(receipt) " ,  txLifecycle.onTxConfirm(receipt) );
+  
       }
 
       updateEthBalances()
@@ -345,7 +344,7 @@ export const useArbTokenBridge = (
     } catch (error) {
       if (txLifecycle?.onTxError) {
         txLifecycle.onTxError(error)
-        console.log("  txLifecycle.onTxError(error) " ,  txLifecycle.onTxError(error) );
+     
       }
       console.error('withdrawEth err', error)
     }
