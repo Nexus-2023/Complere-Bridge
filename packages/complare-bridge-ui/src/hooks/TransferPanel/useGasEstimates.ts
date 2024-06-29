@@ -35,22 +35,12 @@ async function fetcher([
       : sourceChainProvider
   }
 
-  console.log("sourceChainProvider.network.chainId" , sourceChainProvider.network.chainId);
-  // console.log("destinationChainProvider" , destinationChainProvider);
-  // console.log("isDeposit" , isDeposit);
-  // console.log("estimateGasFunctionParams" , estimateGasFunctionParams);
-  // console.log("tokenParentChainAddress" , tokenParentChainAddress);
- 
   if (isDeposit) {
-    console.log("typeof tokenParentChainAddress === 'string'" , typeof tokenParentChainAddress === 'string');
-    
-   const Depositresult =  await depositEthEstimateGas({
-    ...estimateGasFunctionParams,
-    parentChainProvider: sourceChainProvider
-  })
-  console.log("Depositresult ", Depositresult);
+    console.log(
+      "typeof tokenParentChainAddress === 'string'",
+      typeof tokenParentChainAddress === 'string'
+    )
 
- 
     return typeof tokenParentChainAddress === 'string'
       ? await depositTokenEstimateGas({
           ...estimateGasFunctionParams,
@@ -62,19 +52,7 @@ async function fetcher([
           parentChainProvider: sourceChainProvider
         })
   }
- 
 
-  const Withdrawresult =    await withdrawInitTxEstimateGas({
-    ...estimateGasFunctionParams,
-    erc20L1Address: tokenParentChainAddress
-  })
-
-
-
-
-  console.log("Withdrawresult" , Withdrawresult);
-  
-  
   return await withdrawInitTxEstimateGas({
     ...estimateGasFunctionParams,
     erc20L1Address: tokenParentChainAddress
@@ -110,7 +88,7 @@ export function useGasEstimates({
         ],
     fetcher,
     {
-      refreshInterval: 30_0000,
+      refreshInterval: 30_000,
       shouldRetryOnError: true,
       errorRetryCount: 2,
       errorRetryInterval: 5_000

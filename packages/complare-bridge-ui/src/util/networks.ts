@@ -187,8 +187,8 @@ export const rpcURLs: { [chainId: number]: string } = {
     fallback: `${process.env.NEXT_PUBLIC_NEXUS_ORBIT_RPC_URL || "null rpc"}`
   }),
   [ChainId.Complare]: loadEnvironmentVariableWithFallback({
-    env: process.env.NEXT_PUBLIC_L3_RPCL,
-    fallback: `${process.env.NEXT_PUBLIC_L3_EXPLORER || "null rpc"}`
+    env: process.env.NEXT_PUBLIC_L3_RPC,
+    fallback: `${process.env.NEXT_PUBLIC_L3_EXPLORER}`
   }),
 
   [ChainId.baseSepolia]: loadEnvironmentVariableWithFallback({
@@ -213,8 +213,8 @@ export const explorerUrls: { [chainId: number]: string } = {
   // Orbit Testnets
   [ChainId.StylusTestnet]: 'https://stylus-testnet-explorer.arbitrum.io',
   [ChainId.NexusOrbit]: `${process.env.NEXT_PUBLIC_NEXUS_ORBIT_EXPLORER_URL || "https://testnet.explorer.nexusnetwork.live"}`,
-    [ChainId.baseSepolia]: `${process.env.NEXT_PUBLIC_BASE_SEPOLIA_EXPLORER || "https://base-sepolia.blockscout.com"}`,
-    [ChainId.Complare]: `${process.env.NEXT_PUBLIC_L3_EXPLORER || "https://base-sepolia.blockscout.com"}`
+    [ChainId.baseSepolia]: `${process.env.NEXT_PUBLIC_BASE_SEPOLIA_EXPLORER}`,
+    [ChainId.Complare]: `${process.env.NEXT_PUBLIC_L3_EXPLORER}`
   
 }
 
