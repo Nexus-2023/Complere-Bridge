@@ -133,16 +133,19 @@ function createSubgraphClient(key: SubgraphKey) {
 export function getCctpSubgraphClient(chainId: number) {
   switch (chainId) {
     case ChainId.Ethereum:
-      return createSubgraphClient('cctp-ethereum')
-
+      // return createSubgraphClient('cctp-ethereum')
+      return ''
     case ChainId.ArbitrumOne:
-      return createSubgraphClient('cctp-arbitrum-one')
+      // return createSubgraphClient('cctp-arbitrum-one')
+      return ''
 
     case ChainId.Sepolia:
-      return createSubgraphClient('cctp-sepolia')
+      // return createSubgraphClient('cctp-sepolia')
+      return ''
 
     case ChainId.ArbitrumSepolia:
-      return createSubgraphClient('cctp-arbitrum-sepolia')
+      //  return createSubgraphClient('cctp-arbitrum-sepolia')
+      return ''
 
     default:
       throw new Error(`[getCctpSubgraphClient] unsupported chain: ${chainId}`)
@@ -152,19 +155,19 @@ export function getCctpSubgraphClient(chainId: number) {
 export function getL1SubgraphClient(l2ChainId: number) {
   switch (l2ChainId) {
     case ChainId.ArbitrumOne:
-      return createSubgraphClient('l1-arbitrum-one')
-
+      //return createSubgraphClient('l1-arbitrum-one')
+      return ''
     case ChainId.ArbitrumNova:
-      return createSubgraphClient('l1-arbitrum-nova')
-
+      //return createSubgraphClient('l1-arbitrum-nova')
+      return ''
     case ChainId.ArbitrumSepolia:
-      return createSubgraphClient('l1-arbitrum-sepolia')
+      // return createSubgraphClient('l1-arbitrum-sepolia')
 
-    case ChainId.Holesky:
-      return createApolloClient('https://api.studio.thegraph.com/proxy/55613/l1_holesky_orbit/version/latest')
-
-      case ChainId.baseSepolia:
-        return createApolloClient(`${process.env.NEXT_PUBLIC_BASESEPOLIA_LAYER1_SUBGRAPH} || "subgraph not found"`)
+      return ''
+    case ChainId.baseSepolia:
+      return createApolloClient(
+        `${process.env.NEXT_PUBLIC_BASESEPOLIA_LAYER1_SUBGRAPH}`
+      )
 
     default:
       throw new Error(`[getL1SubgraphClient] unsupported chain: ${l2ChainId}`)
@@ -174,16 +177,16 @@ export function getL1SubgraphClient(l2ChainId: number) {
 export function getL2SubgraphClient(l2ChainId: number) {
   switch (l2ChainId) {
     case ChainId.ArbitrumOne:
-      return createSubgraphClient('l2-arbitrum-one')
-
+      // return createSubgraphClient('l2-arbitrum-one')
+      return ''
     case ChainId.ArbitrumSepolia:
-      return createSubgraphClient('l2-arbitrum-sepolia')
+      // return createSubgraphClient('l2-arbitrum-sepolia')
+      return ''
 
-    case ChainId.NexusOrbit:
-      return createApolloClient('https://testnet.graph.nexusnetwork.live/subgraphs/name/umer/layer2-token-gateway-nexus/graphql')
-
-      case ChainId.Complare:
-        return createApolloClient(`${process.env.NEXT_PUBLIC_COMPLARE_LAYER2_SUBGRAPH} || "subgraph not found"`)
+    case ChainId.Complare:
+      return createApolloClient(
+        `${process.env.NEXT_PUBLIC_COMPLARE_LAYER2_SUBGRAPH}`
+      )
 
     default:
       throw new Error(`[getL2SubgraphClient] unsupported chain: ${l2ChainId}`)

@@ -5,11 +5,7 @@ import { ExternalLink } from '../common/ExternalLink'
 import metamaskLogo from '@/icons/MetamaskLogo.svg'
 import walletLogo from '@/images/crypto-wallet.png'
 import Image from 'next/image'
-import {
-  AddChainButton,
-  AddHoleskyButton,
- 
-} from '../common/AddChain'
+import { AddChainButton, AddHoleskyButton } from '../common/AddChain'
 
 function WalletConnectWarning() {
   return (

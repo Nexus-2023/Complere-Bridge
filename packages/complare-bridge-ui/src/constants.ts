@@ -4,10 +4,10 @@ export const TOS_LOCALSTORAGE_KEY = 'arbitrum:bridge:tos-v' + TOS_VERSION
 
 export const SIDEBAR_OPEN_PREFERENCE_KEY = 'arbitrum:sidebar:opened'
 
-const SUPPORT_LINK_BASE = 'https://discord.gg/wnTfyh6T'
+const SUPPORT_LINK_BASE = '<YOUR DISCORD LINK>'
 
-export const GET_HELP_LINK = `https://discord.gg/wnTfyh6T`
-export const NEXUS_DISCORD = "https://discord.gg/wnTfyh6T"
+export const GET_HELP_LINK = `<YOUR DISCORD LINK>`
+export const NEXUS_DISCORD = "<YOUR DISCORD LINK>"
 export const PORTAL_DOMAIN = 'https://portal.arbitrum.io'
 
 export const CAREERS_ARBITRUM_LINK = 'https://jobs.arbitrum.io/jobs'
@@ -39,3 +39,4 @@ export const MULTICALL_TESTNET_ADDRESS =
 export const ETHER_TOKEN_LOGO = '/images/EthereumLogoRound.svg'
 
 export const ether = { name: 'Ether', symbol: 'ETH', decimals: 18 } as const
+export const sepoliaEther = { name: 'Sepolia Ether', symbol: 'ETH', decimals: 18 } as const

@@ -86,7 +86,7 @@ export default async function handler(
     ${search ? `l2TxHash_contains: "${search}"` : ''}
     `
 
-    let subgraphClient
+    let subgraphClient:any
     try {
       subgraphClient = getL2SubgraphClient(Number(l2ChainId))
     } catch (error: any) {

@@ -1,5 +1,9 @@
 import React from 'react'
-import { addHoleskyChain, addBaseSepoliaChain, addComplareChain } from '../../util/metamask'
+import {
+  addHoleskyChain,
+  addBaseSepoliaChain,
+  addComplareChain
+} from '../../util/metamask'
 import { Button } from '@mui/material'
 import { useNetworks } from '../../hooks/useNetworks'
 import { useNetworksRelationship } from '../../hooks/useNetworksRelationship'
@@ -22,14 +26,13 @@ export const AddChainButton = () => {
     <div>
       {(isParentChainEthereum && isConnectedToArbitrum) ||
       isConnectedToOrbitChain ? (
-        <AddBaseSepoliaButton/>
+        <AddBaseSepoliaButton />
       ) : (
-        <AddComplareButton/>
+        <AddComplareButton />
       )}
     </div>
   )
 }
- 
 
 export const AddBaseSepoliaButton = () => {
   return (
@@ -39,7 +42,7 @@ export const AddBaseSepoliaButton = () => {
         onClick={addBaseSepoliaChain}
         variant="outlined"
         sx={{ color: '#1377BB' }}
-       title="add testnet base sepolia chain to your metamask"
+        title="add testnet base sepolia chain to your metamask"
       >
         <Image
           src={MetamaskLogo}
@@ -48,34 +51,33 @@ export const AddBaseSepoliaButton = () => {
           alt="metamask logo"
           className="mr-2"
         />
-    Add Base Sepolia
+        Add Base Sepolia
       </Button>
     </div>
   )
 }
-  export const AddComplareButton = () => {
-    return (
-      <div>
-        <Button
-          className="   rounded-lg    border-2 text-sm   font-medium hover:border-2       "
-          onClick={addComplareChain}
-          variant="outlined"
-          sx={{ color: '#1377BB' }}
-         title="add testnet Complare chain to your metamask"
-        >
-          <Image
-            src={MetamaskLogo}
-            width={25}
-            height={25}
-            alt="metamask logo"
-            className="mr-2"
-          />
-      Add Complare
-        </Button>
-      </div>
-    )
-  }
-
+export const AddComplareButton = () => {
+  return (
+    <div>
+      <Button
+        className="   rounded-lg    border-2 text-sm   font-medium hover:border-2       "
+        onClick={addComplareChain}
+        variant="outlined"
+        sx={{ color: '#1377BB' }}
+        title="add testnet Complare chain to your metamask"
+      >
+        <Image
+          src={MetamaskLogo}
+          width={25}
+          height={25}
+          alt="metamask logo"
+          className="mr-2"
+        />
+        Add Complare
+      </Button>
+    </div>
+  )
+}
 
 export const AddHoleskyButton = () => {
   return (

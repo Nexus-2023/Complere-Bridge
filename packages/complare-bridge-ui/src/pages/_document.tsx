@@ -1,7 +1,7 @@
 import { Html, Head, Main, NextScript } from 'next/document'
 
 export const siteTitle = 'Complare Bridge'
-const siteDomain = 'https://testnet.app.nexusnetwork.live/?destinationChain=nexus-orbit-chain&sourceChain=holesky'
+const siteDomain = 'https://complere-bridge-test-deploy.vercel.app/?destinationChain=complare-chain&sourceChain=base-sepolia'
 const siteDescription =
   ' Complare Bridge Dapp'
 
@@ -26,7 +26,7 @@ export default function Document() {
 
         {/* <!-- Twitter Meta Tags --> */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta property="twitter:domain" content="https://testnet.app.nexusnetwork.live/?destinationChain=nexus-orbit-chain&sourceChain=holesky" />
+        <meta property="twitter:domain" content="https://complere-bridge-test-deploy.vercel.app/?destinationChain=complare-chain&sourceChain=base-sepolia" />
         <meta property="twitter:url" content={siteDomain} />
         <meta name="twitter:title" content={siteTitle} />
         <meta name="twitter:description" content={siteDescription} />

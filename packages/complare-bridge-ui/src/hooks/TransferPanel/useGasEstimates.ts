@@ -35,34 +35,7 @@ async function fetcher([
       : sourceChainProvider
   }
 
-  console.log("sourceChainProvider" , sourceChainProvider);
-  console.log("destinationChainProvider" , destinationChainProvider);
-  console.log("isDeposit" , isDeposit);
-  console.log("estimateGasFunctionParams" , estimateGasFunctionParams);
-  console.log("tokenParentChainAddress" , tokenParentChainAddress);
-
   if (isDeposit) {
-    console.log("typeof tokenParentChainAddress === 'string'" , typeof tokenParentChainAddress === 'string');
-    
-
-    if (typeof tokenParentChainAddress === 'string') {
-      console.log(" await deposit Token " , await depositTokenEstimateGas({
-        ...estimateGasFunctionParams,
-        parentChainProvider: sourceChainProvider,
-        erc20L1Address: tokenParentChainAddress
-      }));
-  
-    }
-
-    else {
-
-      console.log(" await deposit ETH" , await depositEthEstimateGas({
-        ...estimateGasFunctionParams,
-        parentChainProvider: sourceChainProvider
-    
-      }));
-    }
-
     return typeof tokenParentChainAddress === 'string'
       ? await depositTokenEstimateGas({
           ...estimateGasFunctionParams,

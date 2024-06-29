@@ -37,7 +37,7 @@ type NetworkType = 'core' | 'orbit'
 enum ChainGroupName {
   core = 'CORE CHAINS',
   orbit = 'ORBIT CHAINS',
-  NULL = ""
+  NULL = ''
 }
 
 type ChainGroupInfo = {
@@ -76,13 +76,7 @@ function ChainTypeInfoRow({
   const isCoreGroup = chainGroup.name === ChainGroupName.core
 
   return (
-    <div
-      key={name}
-      style={style}
-      className={twMerge(
-        'px-4 py-3',
-      )}
-    >
+    <div key={name} style={style} className={twMerge('px-4 py-3')}>
       <p className="text-sm text-white/70">{name}</p>
       {description}
     </div>

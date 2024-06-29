@@ -11,9 +11,9 @@ import { MergedTransaction } from '../../state/app/state'
  * Buffer for after a node is confirmable but isn't yet confirmed.
  * A rollup block (RBlock) typically gets asserted every 30-60 minutes.
  */
-const CONFIRMATION_BUFFER_MINUTES = 25
+const CONFIRMATION_BUFFER_MINUTES = 60
 
-const SECONDS_IN_MIN = 26
+const SECONDS_IN_MIN = 60
 
 export function getTxConfirmationDate({
   createdAt,
@@ -31,15 +31,8 @@ export function getTxConfirmationDate({
     getBlockTime(baseChainId) * getConfirmPeriodBlocks(withdrawalFromChainId) +
     CONFIRMATION_BUFFER_MINUTES * SECONDS_IN_MIN
 
-// console.log("Block Time :" ,getBlockTime(baseChainId) );
-// console.log("Confirm Period Blocks  :" ,getConfirmPeriodBlocks(withdrawalFromChainId) );
-// console.log("confirmationSeconds :" ,confirmationSeconds );
-// console.log("CONFIRMATION_BUFFER_MINUTES * SECONDS_IN_MIN " , CONFIRMATION_BUFFER_MINUTES * SECONDS_IN_MIN);
-
   return createdAt.add(confirmationSeconds, 'second')
 }
-
-
 
 export function WithdrawalCountdown({
   tx

@@ -180,12 +180,14 @@ export default async function handler(
     }`)
 
     const sourceSubgraph = type === 'deposits' ? l1Subgraph : l2Subgraph
+    // @ts-ignore
     const messagesSentResult = await sourceSubgraph.query<{
       messageSents: MessageSent[]
     }>({
       query: messagesSentQuery
     })
     const { messageSents } = messagesSentResult.data
+    // @ts-ignore
     const formattedIds = messageSents.map(messageSent => `"${messageSent.id}"`)
 
     const messagesReceivedQuery = gql(`{
@@ -207,6 +209,7 @@ export default async function handler(
     `)
 
     const targetSubgraph = type === 'deposits' ? l2Subgraph : l1Subgraph
+    // @ts-ignore
     const messagesReceivedResult = await targetSubgraph.query<{
       messageReceiveds: MessageReceived[]
     }>({
@@ -221,13 +224,14 @@ export default async function handler(
     // Map(3) {'key1' => 'value1', 'key2' => 'value2', 'keyN' => 'valueN'}
     // We create a map with all keys being MessagesReceived ids, and values being the corresponding MessageReceived
     const messagesReceivedMap = new Map(
-      messageReceiveds.map(messageReceived => [
+      messageReceiveds.map((messageReceived:any) => [
         messageReceived.id,
         messageReceived
       ])
     )
 
     const { pending, completed } = messageSents.reduce(
+      // @ts-ignore
       (acc, messageSent) => {
         // If the MessageSent has a corresponding MessageReceived
         const messageReceived = messagesReceivedMap.get(messageSent.id)
@@ -251,6 +255,7 @@ export default async function handler(
 
     res.status(200).json({
       meta: {
+        // @ts-ignore
         source: getSourceFromSubgraphClient(l1Subgraph)
       },
       data: {

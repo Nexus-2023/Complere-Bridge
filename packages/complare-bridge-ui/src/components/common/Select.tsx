@@ -1,39 +1,34 @@
-import { Fragment, useState , useEffect } from 'react'
+import { Fragment, useState, useEffect } from 'react'
 import { Listbox, Transition } from '@headlessui/react'
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
 import { useIsTestnetMode } from '../../hooks/useIsTestnetMode'
 import { useArbQueryParams } from '../../hooks/useArbQueryParams'
- 
 
 interface NetworkItem {
-  mode: string;
+  mode: string
 }
 // const network: NetworkItem[] = [{ mode: 'Testnet' }, { mode: 'Mainnet' }]
 
 const network: NetworkItem[] = [{ mode: 'Testnet' }]
 export default function TestModeSelect() {
-  const initialNetworkItem = network[0];
-  const [selected, setSelected] = useState<NetworkItem | undefined>(initialNetworkItem)
+  const initialNetworkItem = network[0]
+  const [selected, setSelected] = useState<NetworkItem | undefined>(
+    initialNetworkItem
+  )
   const [isTestnetMode, toggleTestnetMode] = useIsTestnetMode()
- 
-console.log("isTestnetMode" , isTestnetMode);
 
+  console.log('isTestnetMode', isTestnetMode)
 
-useEffect(  () =>  {
- if(isTestnetMode === true) {
-  setSelected(network[0])
- }
+  useEffect(() => {
+    if (isTestnetMode === true) {
+      setSelected(network[0])
+    } else {
+      setSelected(network[1])
+    }
+  }, [isTestnetMode])
 
- else {
-  setSelected(network[1])
- }
-
-},[ isTestnetMode]
-)
-  
   const handleListboxChange = (newValue: { mode: string }) => {
- 
-    console.log("isTestnetMode" , isTestnetMode);
+    console.log('isTestnetMode', isTestnetMode)
     if (newValue.mode !== selected?.mode) {
       setSelected(newValue)
       toggleTestnetMode()
@@ -96,4 +91,3 @@ useEffect(  () =>  {
     </div>
   )
 }
-

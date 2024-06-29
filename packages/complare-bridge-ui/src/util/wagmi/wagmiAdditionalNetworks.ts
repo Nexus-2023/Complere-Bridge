@@ -1,6 +1,6 @@
 import { Chain, sepolia as sepoliaDefault } from 'wagmi'
 
-import { ether } from '../../constants'
+import { ether ,sepoliaEther} from '../../constants'
 import { ChainId, ChainWithRpcUrl, explorerUrls, rpcURLs } from '../networks'
 import { getBridgeUiConfigForChain } from '../bridgeUiConfig'
 
@@ -68,7 +68,7 @@ export const baseSepolia: Chain = {
   id: ChainId.baseSepolia,
   name: 'Base Sepolia',
   network: 'Base Sepolia',
-  nativeCurrency: ether,
+  nativeCurrency: sepoliaEther,
   rpcUrls: {
     default: {
       http: [rpcURLs[ChainId.baseSepolia]!]

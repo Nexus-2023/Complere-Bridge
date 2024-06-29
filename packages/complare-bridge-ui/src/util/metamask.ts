@@ -8,7 +8,7 @@
             {
               chainId: '0x160CA4815',
               rpcUrls: [
-                `${process.env.NEXT_PUBLIC_L3_RPC || 'null rpc'}`
+                `${process.env.NEXT_PUBLIC_L3_RPC}`
               ],
               chainName: 'complare-chain',
               nativeCurrency: {
@@ -18,8 +18,7 @@
               },
               blockExplorerUrls: [
                 `${
-                  process.env.NEXT_PUBLIC_L3_EXPLORER ||
-                  'null Explorer url'
+                  process.env.NEXT_PUBLIC_L3_EXPLORER
                 }`
               ]
             }
@@ -75,16 +74,16 @@
             {
               chainId: '0x14A34',
               rpcUrls: [
-                `${process.env.NEXT_PUBLIC_BASE_SEPOLIA_RPC_URL}` || "invalid rpc"
+                `${process.env.NEXT_PUBLIC_BASE_SEPOLIA_RPC_URL}`
               ],
               chainName: 'Base Sepolia Testnet',
               nativeCurrency: {
-                name: 'ETHER',
+               name: 'Sepolia Ether',
                 symbol: 'ETH',
                 decimals: 18
               },
               blockExplorerUrls: [
-               "https://base-sepolia.blockscout.com/"
+               `${process.env.NEXT_PUBLIC_BASE_SEPOLIA_EXPLORER}`
               ]
             }
           ]

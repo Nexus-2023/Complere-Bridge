@@ -11,10 +11,9 @@ export function HeaderConnectWalletButton() {
             onClick={openConnectModal}
             type="button"
             className={twMerge(
-              ' rounded-xl bg-[#003F69] px-4 py-2 text-base font-semibold text-white hover:bg-[#005792] transition-all duration-300 ease-in  '
+              ' rounded-xl bg-[#003F69] px-4 py-2 text-base font-semibold text-white transition-all duration-300 ease-in hover:bg-[#005792]  '
             )}
           >
-
             Connect Wallet
           </button>
         </div>

@@ -1,3 +1,4 @@
+import { log } from 'console'
 import { hasL1Subgraph } from '../SubgraphUtils'
 import { getAPIBaseUrl, sanitizeQueryParams } from './../index'
 
@@ -73,6 +74,9 @@ export const fetchDepositsFromSubgraph = async ({
     })
   )
 
+  
+   
+
   if (!hasL1Subgraph(Number(l2ChainId))) {
     throw new Error(`L1 subgraph not available for network: ${l2ChainId}`)
   }
@@ -83,7 +87,8 @@ export const fetchDepositsFromSubgraph = async ({
     method: 'GET',
     headers: { 'Content-Type': 'application/json' }
   })
-
+  // console.log("deposit response" ,await response.json());
+  
   const transactions: FetchDepositsFromSubgraphResult[] = (
     await response.json()
   ).data

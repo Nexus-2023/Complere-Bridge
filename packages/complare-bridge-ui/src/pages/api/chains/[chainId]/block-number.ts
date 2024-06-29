@@ -56,7 +56,7 @@ export default async function handler(
   }
 
   try {
-    const subgraphClient = getSubgraphClient(Number(chainId))
+    const subgraphClient:any = getSubgraphClient(Number(chainId))
 
     const result: {
       data: {

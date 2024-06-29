@@ -143,7 +143,7 @@ function decodeChainQueryParam(
   }
 
   const valueNumber = decodeNumber(value)
- 
+
   if (
     isValidNumber(valueNumber) &&
     isValidChainQueryParam(valueNumber as ChainId)

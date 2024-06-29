@@ -279,6 +279,7 @@ function TokenBalance({
 }) {
   const isParentChain = on === NetworkType.l1
 
+ 
   if (!forToken) {
     return null
   }
@@ -296,6 +297,7 @@ function TokenBalance({
         {formatAmount(balance, {
           decimals: forToken.decimals
         })}
+    
       </span>{' '}
       <TokenSymbolWithExplorerLink
         token={forToken}
@@ -438,6 +440,9 @@ export function TransferPanelMain({
     setOneNovaTransferDestinationNetworkId
   ] = useState<number | null>(null)
   const selectedTokenBalances = useSelectedTokenBalances()
+ 
+  
+
   const isMaxAmount = amount === AmountQueryParamEnum.MAX
 
   const showUSDCSpecificInfo =
@@ -546,7 +551,7 @@ export function TransferPanelMain({
           <span>
             Gas estimation failed, join our{' '}
             <ExternalLink
-              href="https://discord.gg/wnTfyh6T"
+              href=""
               className="underline"
             >
               Discord
@@ -609,7 +614,8 @@ export function TransferPanelMain({
     }
 
     const destinationChains = getDestinationChains()
-
+   
+    
     return {
       from: {
         onChange: async network => {
