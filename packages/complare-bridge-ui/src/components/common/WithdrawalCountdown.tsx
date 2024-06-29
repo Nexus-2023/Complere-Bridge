@@ -31,12 +31,8 @@ export function getTxConfirmationDate({
     getBlockTime(baseChainId) * getConfirmPeriodBlocks(withdrawalFromChainId) +
     CONFIRMATION_BUFFER_MINUTES * SECONDS_IN_MIN
 
- 
-
   return createdAt.add(confirmationSeconds, 'second')
 }
-
-
 
 export function WithdrawalCountdown({
   tx
