@@ -23,7 +23,7 @@ export const Footer = () => {
             href={''}
             target="_blank"
             className="mb-2 text-sm transition-all duration-300 ease-in-out  hover:scale-110  sm:text-lg"
-            title="Nexus Blog"
+            title="Blog"
           >
             <ArticleIcon />
           </Link>

@@ -183,8 +183,6 @@ export const useArbTokenBridge = (
 
     const ethBridger = await EthBridger.fromProvider(l2.provider)
 
- 
-
     const parentChainBlockTimestamp = (await l1.provider.getBlock('latest'))
       .timestamp
 
@@ -192,19 +190,17 @@ export const useArbTokenBridge = (
       amount,
       from: walletAddress
     })
-   
+
     let tx: L1EthDepositTransaction
 
     try {
       const gasLimit = await l1.provider.estimateGas(depositRequest.txRequest)
- 
- 
+
       tx = await ethBridger.deposit({
         amount,
         l1Signer,
         overrides: { gasLimit: percentIncrease(gasLimit, BigNumber.from(5)) }
       })
-     
 
       if (txLifecycle?.onTxSubmit) {
         txLifecycle.onTxSubmit(tx)
@@ -258,7 +254,6 @@ export const useArbTokenBridge = (
     })
 
     const receipt = await tx.wait()
-   
 
     if (txLifecycle?.onTxConfirm) {
       txLifecycle.onTxConfirm(receipt)
@@ -299,14 +294,7 @@ export const useArbTokenBridge = (
         overrides: { gasLimit: percentIncrease(gasLimit, BigNumber.from(30)) }
       })
 
-  
-     
-      
-      
-   
-     
       if (txLifecycle?.onTxSubmit) {
-    
         txLifecycle.onTxSubmit(tx)
       }
 
@@ -332,10 +320,9 @@ export const useArbTokenBridge = (
       })
 
       const receipt = await tx.wait()
-    
+
       if (txLifecycle?.onTxConfirm) {
         txLifecycle.onTxConfirm(receipt)
-  
       }
 
       updateEthBalances()
@@ -344,7 +331,6 @@ export const useArbTokenBridge = (
     } catch (error) {
       if (txLifecycle?.onTxError) {
         txLifecycle.onTxError(error)
-     
       }
       console.error('withdrawEth err', error)
     }

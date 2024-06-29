@@ -36,9 +36,6 @@ async function fetcher([
   }
 
   if (isDeposit) {
- 
- 
-
     return typeof tokenParentChainAddress === 'string'
       ? await depositTokenEstimateGas({
           ...estimateGasFunctionParams,
