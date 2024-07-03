@@ -72,7 +72,6 @@ import { useNetworks } from '../../hooks/useNetworks'
 import { useNetworksRelationship } from '../../hooks/useNetworksRelationship'
 import { CctpTransferStarter } from '@/token-bridge-sdk/CctpTransferStarter'
 import { truncateExtraDecimals } from '../../util/NumberUtils'
- 
 
 const isAllowedL2 = async ({
   l1TokenAddress,
@@ -147,28 +146,20 @@ export function TransferPanel() {
     isDepositMode
   } = useNetworksRelationship(networks)
   const latestNetworks = useLatest(networks)
- 
+
   const nativeCurrency = useNativeCurrency({ provider: childChainProvider })
 
   const { isEOA, isSmartContractWallet } = useAccountType()
 
-   
   // 13331370 nexus  , 42161 arbitrum one , 11155111 sepolia
   const { data: l1Signer } = useSigner({
     chainId: parentChain.id
   })
 
-
- 
-
   const { data: l2Signer } = useSigner({
     chainId: childChain.id
   })
 
- 
-   
-
- 
   const { openTransactionHistoryPanel, setTransferring } =
     useAppContextActions()
   const { addPendingTransaction } = useTransactionHistory(walletAddress)
@@ -276,21 +267,18 @@ export function TransferPanel() {
 
       return type
     }
-    console.log('log1')
+
     // Check if we need to show `TokenDepositCheckDialog` for first-time bridging
     const dialogType = getDialogType()
-    console.log('log2')
 
     if (dialogType) {
       setTokenDepositCheckDialogType(dialogType)
-      console.log('log3')
+
       const waitForInput = openTokenCheckDialog()
       const [confirmed] = await waitForInput()
 
       if (confirmed) {
-        console.log('log4')
         transfer()
-        console.log('log5')
       }
     } else {
       transfer()
@@ -308,7 +296,6 @@ export function TransferPanel() {
 
     const ethBridger = await EthBridger.fromProvider(childChainProvider)
     const { l2Network } = ethBridger
- 
 
     if (typeof l2Network.nativeToken === 'undefined') {
       throw new Error('l2 network does not use custom fee token')
@@ -336,8 +323,6 @@ export function TransferPanel() {
         l1Signer
       })
 
-      console.log('approveCustomFeeTokenTx ', approveCustomFeeTokenTx)
-
       await approveCustomFeeTokenTx.wait()
     }
 
@@ -359,19 +344,16 @@ export function TransferPanel() {
 
     const erc20Bridger = await Erc20Bridger.fromProvider(childChainProvider)
     const l2Network = erc20Bridger.l2Network
- 
 
     if (typeof l2Network.nativeToken === 'undefined') {
       throw new Error('l2 network does not use custom fee token')
     }
- 
+
     const l1Gateway = await fetchErc20ParentChainGatewayAddress({
       erc20ParentChainAddress: selectedToken.address,
       parentChainProvider,
       childChainProvider
     })
-
-    console.log('l1Gateway ', l1Gateway)
 
     const customFeeTokenAllowanceForL1Gateway = await fetchErc20Allowance({
       address: l2Network.nativeToken,
@@ -665,8 +647,6 @@ export function TransferPanel() {
         'chainId !== networks.sourceChain.id',
         chainId !== networks.sourceChain.id
       )
-      // console.log('chainId', chainId)
-      // console.log('networks.sourceChain.id', networks.sourceChain.id)
 
       if (chainId !== networks.sourceChain.id) {
         await switchNetworkAsync?.(networks.sourceChain.id)
@@ -861,7 +841,6 @@ export function TransferPanel() {
               return
             }
           }
- 
 
           const r = await latestEth.current.deposit({
             amount: utils.parseUnits(amount, nativeCurrency.decimals),
@@ -884,8 +863,6 @@ export function TransferPanel() {
               onTxError
             }
           })
-
-          console.log('r', r)
         }
       } else {
         if (!l2Signer) {
@@ -1102,7 +1079,7 @@ export function TransferPanel() {
               style={{
                 borderColor: destinationChainUIcolor,
                 // backgroundColor: `${destinationChainUIcolor}`
-                 backgroundColor: `#003F69`
+                backgroundColor: `#003F69`
               }}
               className={twMerge(
                 'w-full border bg-eth-dark py-2 text-base',
@@ -1136,7 +1113,6 @@ export function TransferPanel() {
                 borderColor: destinationChainUIcolor,
                 // backgroundColor: `${destinationChainUIcolor}66`
                 backgroundColor: `#003F69`
-                
               }}
               className={twMerge(
                 'w-full border py-2 text-base',

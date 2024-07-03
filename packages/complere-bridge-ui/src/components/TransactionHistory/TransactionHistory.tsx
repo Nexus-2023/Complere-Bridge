@@ -52,8 +52,7 @@ export const TransactionHistory = ({
   props: UseTransactionHistoryResult & { address: Address | undefined }
 }) => {
   const { transactions, address } = props
-   console.log("transactions" , transactions);
-   
+
   const oldestTxTimeAgoString = useMemo(() => {
     return dayjs(transactions[transactions.length - 1]?.createdAt).toNow(true)
   }, [transactions])

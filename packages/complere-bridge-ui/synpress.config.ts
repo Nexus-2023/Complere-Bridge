@@ -120,7 +120,7 @@ export default defineConfig({
       setupCypressTasks(on)
       return config
     },
-    baseUrl: 'http://localhost:3000',
+    baseUrl: 'http://localhost:3000/testing',
     specPattern: tests,
     supportFile: 'tests/support/index.ts'
   }
@@ -134,8 +134,7 @@ if (typeof INFURA_KEY === 'undefined') {
 const MAINNET_INFURA_RPC_URL = `https://mainnet.infura.io/v3/${INFURA_KEY}`
 const SEPOLIA_INFURA_RPC_URL = `https://sepolia.infura.io/v3/${INFURA_KEY}`
 
-console.log("MAINNET_INFURA_RPC_URL" , MAINNET_INFURA_RPC_URL);
-console.log("SEPOLIA_INFURA_RPC_URL " , SEPOLIA_INFURA_RPC_URL );
+ 
  
 
 

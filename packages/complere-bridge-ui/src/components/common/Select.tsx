@@ -16,7 +16,7 @@ export default function TestModeSelect() {
   const [selected, setSelected] = useState<NetworkItem | undefined>(initialNetworkItem)
   const [isTestnetMode, toggleTestnetMode] = useIsTestnetMode()
  
-console.log("isTestnetMode" , isTestnetMode);
+ 
 
 
 useEffect(  () =>  {
@@ -33,7 +33,7 @@ useEffect(  () =>  {
   
   const handleListboxChange = (newValue: { mode: string }) => {
  
-    console.log("isTestnetMode" , isTestnetMode);
+  
     if (newValue.mode !== selected?.mode) {
       setSelected(newValue)
       toggleTestnetMode()

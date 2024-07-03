@@ -86,7 +86,7 @@ export default async function handler(
     ${search ? `transactionHash_contains: "${search}"` : ''}
     `
 
-    console.log("dep l2ChainId" ,l2ChainId);
+ 
     
     let subgraphClient
     try {

@@ -73,12 +73,9 @@ export const fetchDepositsFromSubgraph = async ({
     })
   )
 
-  console.log("deposit chainID" , l2ChainId);
-  
   if (!hasL1Subgraph(Number(l2ChainId))) {
     throw new Error(`L1 subgraph not available for network: ${l2ChainId}`)
   }
-  
 
   if (pageSize === 0) return [] // don't query subgraph if nothing requested
 

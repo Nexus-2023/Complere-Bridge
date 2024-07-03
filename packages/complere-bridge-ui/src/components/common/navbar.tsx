@@ -9,14 +9,12 @@ import discordIcon from '@/icons/Discord.svg'
 import MenuIcon from '@mui/icons-material/Menu'
 import Link from 'next/link'
 import Image from 'next/image'
- 
+
 import logo from '/public/images/ArbitrumLogo.svg'
- 
+
 import { HeaderAccountPopover } from './HeaderAccountPopover'
 
- 
-
-import { AddChainButton  } from '../common/AddChain'
+import { AddChainButton } from '../common/AddChain'
 interface ResponsiveAppBarProps {
   wallet: Boolean
 

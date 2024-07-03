@@ -31,10 +31,7 @@ export function getTxConfirmationDate({
     getBlockTime(baseChainId) * getConfirmPeriodBlocks(withdrawalFromChainId) +
     CONFIRMATION_BUFFER_MINUTES * SECONDS_IN_MIN
 
-// console.log("Block Time :" ,getBlockTime(baseChainId) );
-// console.log("Confirm Period Blocks  :" ,getConfirmPeriodBlocks(withdrawalFromChainId) );
-// console.log("confirmationSeconds :" ,confirmationSeconds );
-// console.log("CONFIRMATION_BUFFER_MINUTES * SECONDS_IN_MIN " , CONFIRMATION_BUFFER_MINUTES * SECONDS_IN_MIN);
+ 
 
   return createdAt.add(confirmationSeconds, 'second')
 }
