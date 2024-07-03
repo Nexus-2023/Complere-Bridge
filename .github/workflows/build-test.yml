@@ -161,7 +161,7 @@ jobs:
 
       - id: set-matrix
         run: |
-          content=`cat packages/arb-token-bridge-ui/tests/e2e/specfiles.json | jq --compact-output .`
+          content=`cat packages/complere-bridge-ui/tests/e2e/specfiles.json | jq --compact-output .`
           echo "e2eFiles=$content" >> $GITHUB_OUTPUT
 
   test-e2e:
@@ -211,7 +211,7 @@ jobs:
           envkey_TEST_FILE: ${{ matrix.tests.file }}
           envkey_NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID }}
           envkey_NEXT_PUBLIC_CCTP_SUBGRAPH_BASE_URL: ${{ secrets.NEXT_PUBLIC_CCTP_SUBGRAPH_BASE_URL }}
-          directory: ./packages/arb-token-bridge-ui/
+          directory: ./packages/complere-bridge-ui/
           file_name: .e2e.env
 
       - name: Make .env
@@ -221,7 +221,7 @@ jobs:
           envkey_NEXT_PUBLIC_INFURA_KEY: ${{ secrets.NEXT_PUBLIC_INFURA_KEY }}
           envkey_NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID }}
           envkey_NEXT_PUBLIC_CCTP_SUBGRAPH_BASE_URL: ${{ secrets.NEXT_PUBLIC_CCTP_SUBGRAPH_BASE_URL }}
-          directory: ./packages/arb-token-bridge-ui/
+          directory: ./packages/complere-bridge-ui/
           file_name: .env
 
       - name: Make synpress .env
@@ -260,35 +260,35 @@ jobs:
       
       - name: Create screenshots directory
         if: steps.e2e-run.outputs.status == 'failed'
-        run: mkdir -p packages/arb-token-bridge-ui/tests/e2e/cypress/screenshots
+        run: mkdir -p packages/complere-bridge-ui/tests/e2e/cypress/screenshots
 
       - name: Copy screenshots from docker container volumes
         if: steps.e2e-run.outputs.status == 'failed'
         run: |
-          docker cp synpress-test:/app/packages/arb-token-bridge-ui/cypress/screenshots packages/arb-token-bridge-ui/tests/e2e/cypress/screenshots
+          docker cp synpress-test:/app/packages/complere-bridge-ui/cypress/screenshots packages/complere-bridge-ui/tests/e2e/cypress/screenshots
 
       - name: Upload screenshots results
         if: steps.e2e-run.outputs.status == 'failed'
         uses: actions/upload-artifact@v4
         with:
           name: failed-e2e-screenshots-${{ fromJSON(toJSON(matrix.tests)).name }}
-          path: packages/arb-token-bridge-ui/tests/e2e/cypress/screenshots
+          path: packages/complere-bridge-ui/tests/e2e/cypress/screenshots
 
       - name: Create videos directory
         if: matrix.tests.recordVideo == 'true'
-        run: mkdir -p packages/arb-token-bridge-ui/tests/e2e/cypress/videos
+        run: mkdir -p packages/complere-bridge-ui/tests/e2e/cypress/videos
 
       - name: Copy videos from docker container volumes
         if: matrix.tests.recordVideo == 'true'
         run: |
-          docker cp synpress-test:/app/packages/arb-token-bridge-ui/cypress/videos packages/arb-token-bridge-ui/tests/e2e/cypress/videos
+          docker cp synpress-test:/app/packages/complere-bridge-ui/cypress/videos packages/complere-bridge-ui/tests/e2e/cypress/videos
 
       - name: Upload videos results
         if: matrix.tests.recordVideo == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: e2e-videos-${{ fromJSON(toJSON(matrix.tests)).name }}
-          path: packages/arb-token-bridge-ui/tests/e2e/cypress/videos
+          path: packages/complere-bridge-ui/tests/e2e/cypress/videos
           compression-level: 0
           retention-days: 3
             

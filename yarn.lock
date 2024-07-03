@@ -54,7 +54,7 @@
   dependencies:
     "@apollo/client-react-streaming" "0.11.0"
 
-"@arbitrum/sdk@file:packages/arb-token-bridge-ui/arbitrum-package":
+"@arbitrum/sdk@file:packages/complere-bridge-ui/arbitrum-package":
   version "3.3.3"
   dependencies:
     "@ethersproject/address" "^5.0.8"

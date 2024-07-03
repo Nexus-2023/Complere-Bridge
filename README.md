@@ -40,7 +40,7 @@ Official arbitrum bridge [Repo](https://github.com/OffchainLabs/arbitrum-token-b
    1. Copy the existing env.local.sample file present.
 
       ```bash
-      $ cp ./packages/arb-token-bridge-ui/.env.local.sample  ./packages/arb-token-bridge-ui/.env
+      $ cp ./packages/complere-bridge-ui/.env.local.sample  ./packages/complere-bridge-ui/.env
       ```
 
    2. In `.env` created, add `NEXT_PUBLIC_INFURA_KEY=my-infura-key` get it from [Infura](https://app.infura.io/login)
@@ -53,7 +53,7 @@ Official arbitrum bridge [Repo](https://github.com/OffchainLabs/arbitrum-token-b
 
    - `NEXT_PUBLIC_ETHEREUM_RPC_URL=my-eth-node`
    - `NEXT_PUBLIC_SEPOLIA_RPC_URL=my-sepolia-node`
-     (see [.env.local.sample](./packages/arb-token-bridge-ui/.env.local.sample))
+     (see [.env.local.sample](./packages/complere-bridge-ui/.env.local.sample))
      If no custom URL is provided, `NEXT_PUBLIC_INFURA_KEY` will be used by default.
 
 6. Build the project and internal packages
