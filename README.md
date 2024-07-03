@@ -37,25 +37,26 @@
       $ cp ./packages/arb-token-bridge-ui/.env.local.sample  ./packages/arb-token-bridge-ui/.env
       ```
 
-   2. In `.env` created, add `NEXT_PUBLIC_INFURA_KEY=my-infura-key` get it from [Infura](https://app.infura.io/login)
+   2. Set `NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID` to your WalletConnect project ID. You can create a new project on the [WalletConnect dashboard](https://cloud.walletconnect.com/app).
 
-   3. Set `NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID` to your WalletConnect project ID. You can create a new project on the [WalletConnect dashboard](https://cloud.walletconnect.com/app).
-
-   4. set layer 3 orbit chain urls:
+   3. set layer 3 orbit chain urls:
 
    - `NEXT_PUBLIC_L3_RPC`
    - `NEXT_PUBLIC_L3_EXPLORER`
    - `NEXT_PUBLIC_COMPLARE_LAYER2_SUBGRAPH`
    - `NEXT_PUBLIC_BASESEPOLIA_LAYER1_SUBGRAPH`
+   - `NEXT_PUBLIC_BASE_SEPOLIA_RPC_URL` #optional
+   - `NEXT_PUBLIC_INFURA_KEY` #optional , needed for previous arbitrum netowrks
+   
 
 
-5. Build the project and internal packages
+4. Build the project and internal packages
 
    ```bash
    $ yarn build
    ```
 
-6. Finally, running the project
+5. Finally, running the project
 
    1. (back in root dir:)
 
