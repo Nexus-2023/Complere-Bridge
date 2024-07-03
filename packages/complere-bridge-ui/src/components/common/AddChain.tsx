@@ -69,7 +69,7 @@ export const AddComplareButton = () => {
           alt="metamask logo"
           className="mr-2"
         />
-        Add Complare
+        Add Complere
       </Button>
     </div>
   )

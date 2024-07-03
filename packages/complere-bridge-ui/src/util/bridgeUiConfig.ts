@@ -55,7 +55,7 @@ export function getBridgeUiConfigForChain(chainId: number): BridgeUiConfig {
         return {
           color: '#0f126c',
           network: {
-            ...ethereumBaseConfig.network,
+            logo: '/images/baseLogo2.png',
             name: 'Base Sepolia',
             description: 'Base testnet'
           }
@@ -123,7 +123,7 @@ export function getBridgeUiConfigForChain(chainId: number): BridgeUiConfig {
           return {
             color: '#000000',
             network: {
-              name: 'Complare Chain',
+              name: 'Complere Chain',
               logo: '/images/ArbitrumOneLogo.svg',
            
               description:

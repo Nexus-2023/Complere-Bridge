@@ -158,7 +158,7 @@ export function USDCDepositConfirmationDialog(props: Props) {
                 >
                   Bridged USDC (USDC.e)
                 </ExternalLink>{' '}
-                on {destinationNetworkName} using Nexus&apos;s native bridge.
+                on {destinationNetworkName} using Complere&apos;s native bridge.
               </p>
 
               <div className="flex flex-col space-y-4">

@@ -99,7 +99,7 @@ export function WithdrawalConfirmationDialog(
         <Tab.Group onChange={setSelectedIndex}>
           <Tab.List className=" ">
             {isArbitrumOne && <TabButton>Third party bridge</TabButton>}
-            <TabButton>Nexus bridge</TabButton>
+            <TabButton>Complere bridge</TabButton>
           </Tab.List>
 
           {isArbitrumOne && (

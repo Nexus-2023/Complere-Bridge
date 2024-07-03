@@ -52,7 +52,7 @@ export function TransferDisabledDialog() {
         <p>
           Unfortunately, <span className="font-medium">{unsupportedToken}</span>{' '}
           has a custom bridge solution that is incompatible with the canonical
-          Nexus bridge.
+          Complere bridge.
         </p>
         <p>
           For more information please contact{' '}

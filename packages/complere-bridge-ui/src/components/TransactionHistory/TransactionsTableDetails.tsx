@@ -6,7 +6,6 @@ import Image from 'next/image'
 import dayjs from 'dayjs'
 import CctpLogoColor from '@/images/CctpLogoColor.svg'
 import ArbitrumLogo from '@/images/ArbitrumLogo.svg'
-import NexusLogo from '@/images/nexus/nexusLogoCompressed.svg'
 import { useTxDetailsStore } from './TransactionHistory'
 import { getExplorerUrl, getNetworkName, isNetwork } from '../../util/networks'
 import { NetworkImage } from '../common/NetworkImage'
@@ -16,7 +15,7 @@ import { useETHPrice } from '../../hooks/useETHPrice'
 import { ExternalLink } from '../common/ExternalLink'
 import { TransactionsTableDetailsSteps } from './TransactionsTableDetailsSteps'
 import { Button } from '../common/Button'
-import { GET_HELP_LINK, ether , NEXUS_DISCORD } from '../../constants'
+import { GET_HELP_LINK, ether , NEXUS_DISCORD , COMPLERE_DISCORD } from '../../constants'
 import { useTransactionHistory } from '../../hooks/useTransactionHistory'
 import { shortenAddress } from '../../util/CommonUtils'
 import { isTxCompleted } from './helpers'
@@ -175,7 +174,7 @@ export const TransactionsTableDetails = ({
                   <div className="flex space-x-2">
                     <Image
                       alt="Bridge logo"
-                      src={tx.isCctp ? CctpLogoColor : NexusLogo}
+                      src={tx.isCctp ? CctpLogoColor : ArbitrumLogo}
                       width={16}
                       height={16}
                     />
@@ -188,7 +187,7 @@ export const TransactionsTableDetails = ({
                         </span>
                       </span>
                     ) : (
-                      <span>Nexus&apos;s native bridge</span>
+                      <span>Complere&apos;s native bridge</span>
                     )}
                   </div>
                 </DetailsBox>
@@ -237,7 +236,7 @@ export const TransactionsTableDetails = ({
 
                 {!isTxCompleted(tx) && (
                   <div className="flex justify-end">
-                    <ExternalLink href={NEXUS_DISCORD }>
+                    <ExternalLink href={COMPLERE_DISCORD }>
                       <Button
                         variant="secondary"
                         className="border-none text-xs"
