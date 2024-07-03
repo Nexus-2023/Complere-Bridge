@@ -53,14 +53,6 @@ const chainGroupInfo: { [key in NetworkType]: ChainGroupInfo } = {
     name: ChainGroupName.orbit,
     description: (
       <></>
-      // <p className="mt-2 flex gap-1 whitespace-normal rounded bg-orange-dark px-2 py-1 text-xs text-orange">
-      //   <ShieldExclamationIcon className="h-4 w-4 shrink-0" />
-      //   <span>
-      //     Independent projects using Arbitrum technology. Orbit chains have
-      //     varying degrees of decentralization.{' '}
-      //     <span className="font-semibold">Bridge at your own risk.</span>
-      //   </span>
-      // </p>
     )
   }
 }

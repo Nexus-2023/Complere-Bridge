@@ -6,8 +6,9 @@ export const SIDEBAR_OPEN_PREFERENCE_KEY = 'arbitrum:sidebar:opened'
 
 const SUPPORT_LINK_BASE = 'https://discord.gg/wnTfyh6T'
 
-export const GET_HELP_LINK = `https://discord.gg/wnTfyh6T`
+export const GET_HELP_LINK = ``
 export const NEXUS_DISCORD = "https://discord.gg/wnTfyh6T"
+export const COMPLERE_DISCORD = ""
 export const PORTAL_DOMAIN = 'https://portal.arbitrum.io'
 
 export const CAREERS_ARBITRUM_LINK = 'https://jobs.arbitrum.io/jobs'

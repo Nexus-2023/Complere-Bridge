@@ -1,15 +1,8 @@
-import { InformationCircleIcon } from '@heroicons/react/24/outline'
 
-import { GET_HELP_LINK } from '../../constants'
-import { ExternalLink } from '../common/ExternalLink'
+
 import metamaskLogo from '@/icons/MetamaskLogo.svg'
-import walletLogo from '@/images/crypto-wallet.png'
 import Image from 'next/image'
-import {
-  AddChainButton,
-  AddHoleskyButton,
-  AddNexusButton
-} from '../common/AddChain'
+
 
 function WalletConnectWarning() {
   return (

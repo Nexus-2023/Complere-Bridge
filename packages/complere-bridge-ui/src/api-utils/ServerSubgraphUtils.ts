@@ -160,8 +160,6 @@ export function getL1SubgraphClient(l2ChainId: number) {
     case ChainId.ArbitrumSepolia:
       return createSubgraphClient('l1-arbitrum-sepolia')
 
-    case ChainId.Holesky:
-      return createApolloClient('https://api.studio.thegraph.com/proxy/55613/l1_holesky_orbit/version/latest')
 
     case ChainId.baseSepolia:
       return createApolloClient(
@@ -179,10 +177,7 @@ export function getL2SubgraphClient(l2ChainId: number) {
 
     case ChainId.ArbitrumSepolia:
       return createSubgraphClient('l2-arbitrum-sepolia')
-
-    case ChainId.NexusOrbit:
-      return createApolloClient('https://testnet.graph.nexusnetwork.live/subgraphs/name/umer/layer2-token-gateway-nexus/graphql')
-
+ 
       case ChainId.Complare:
         return createApolloClient(
           `${process.env.NEXT_PUBLIC_COMPLARE_LAYER2_SUBGRAPH}`

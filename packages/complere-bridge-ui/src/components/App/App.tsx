@@ -17,7 +17,6 @@ import { useLocalStorage } from '@uidotdev/usehooks'
 import ResponsiveAppBar from '../common/navbar'
 import { ConnectionState } from '../../util'
 import { TokenBridgeParams } from '../../hooks/useArbTokenBridge'
-import { WelcomeDialog } from './WelcomeDialog'
 import { BlockedDialog } from './BlockedDialog'
 import { AppContextProvider } from './AppContext'
 import { config, useActions, useAppState } from '../../state'
@@ -25,8 +24,6 @@ import { MainContent } from '../MainContent/MainContent'
 import { ArbTokenBridgeStoreSync } from '../syncers/ArbTokenBridgeStoreSync'
 import { BalanceUpdater } from '../syncers/BalanceUpdater'
 import { TokenListSyncer } from '../syncers/TokenListSyncer'
-import { Header } from '../common/Header'
-import { HeaderAccountPopover } from '../common/HeaderAccountPopover'
 import { isNetwork, rpcURLs } from '../../util/networks'
 import {
   ArbQueryParamProvider,
@@ -42,9 +39,6 @@ import { useNetworksRelationship } from '../../hooks/useNetworksRelationship'
 import { HeaderConnectWalletButton } from '../common/HeaderConnectWalletButton'
 import { AppConnectionFallbackContainer } from './AppConnectionFallbackContainer'
 import { ProviderName, trackEvent } from '../../util/AnalyticsUtils'
- 
-import { Footer } from '../common/Footer'
-import { AddChainButton } from '../common/AddChain'
 import Fade from '@mui/material/Fade';
 declare global {
   interface Window {

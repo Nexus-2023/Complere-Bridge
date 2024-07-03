@@ -189,7 +189,7 @@ export const rpcURLs: { [chainId: number]: string } = {
   }),
   [ChainId.Complare]: loadEnvironmentVariableWithFallback({
     env: process.env.NEXT_PUBLIC_L3_RPC,
-    fallback: `${process.env.NEXT_PUBLIC_L3_EXPLORER}`
+    fallback: `https://testnet-rpc.complere.xyz`
   }),
 
   [ChainId.baseSepolia]: loadEnvironmentVariableWithFallback({
@@ -201,6 +201,8 @@ export const rpcURLs: { [chainId: number]: string } = {
 }
 
 export const explorerUrls: { [chainId: number]: string } = {
+  [ChainId.baseSepolia]: `${process.env.NEXT_PUBLIC_BASE_SEPOLIA_EXPLORER}`,
+  [ChainId.Complare]: `${process.env.NEXT_PUBLIC_L3_EXPLORER}`,
   // L1
   [ChainId.Ethereum]: 'https://etherscan.io',
   // L1 Testnets
@@ -217,12 +219,11 @@ export const explorerUrls: { [chainId: number]: string } = {
     process.env.NEXT_PUBLIC_NEXUS_ORBIT_EXPLORER_URL ||
     'https://testnet.explorer.nexusnetwork.live'
   }`,
-  [ChainId.baseSepolia]: `${process.env.NEXT_PUBLIC_BASE_SEPOLIA_EXPLORER}`,
-  [ChainId.Complare]: `${process.env.NEXT_PUBLIC_L3_EXPLORER}`
+
 }
 export const getExplorerUrl = (chainId: ChainId) => {
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-  return explorerUrls[chainId] ?? explorerUrls[ChainId.Ethereum]! //defaults to etherscan, can never be null
+  return explorerUrls[chainId] ?? explorerUrls[ChainId.Complare]! //defaults to etherscan, can never be null
 }
 
 export const getBlockTime = (chainId: ChainId) => {
