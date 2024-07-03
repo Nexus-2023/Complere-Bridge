@@ -125,56 +125,138 @@ function isDeposit(tx: DepositOrWithdrawal): tx is Deposit {
 }
 
 async function transformTransaction(tx: Transfer): Promise<MergedTransaction> {
-  const parentChainProvider = getProvider(tx.parentChainId)
-  const childChainProvider = getProvider(tx.childChainId)
+  console.log("Starting transformation for transaction:", tx);
+
+  const parentChainProvider = getProvider(tx.parentChainId);
+  const childChainProvider = getProvider(tx.childChainId);
+
+  console.log("Parent chain provider:", parentChainProvider);
+  console.log("Child chain provider:", childChainProvider);
 
   if (isCctpTransfer(tx)) {
-    return tx
+    console.log("Transaction is a CCTP transfer:", tx);
+    return tx;
   }
 
   if (isDeposit(tx)) {
-    return transformDeposit(
-      await updateAdditionalDepositData({
+    console.log("Transaction is a deposit:", tx);
+    try {
+      const updatedDeposit = await updateAdditionalDepositData({
         depositTx: tx,
         l1Provider: parentChainProvider,
         l2Provider: childChainProvider
-      })
-    )
+      });
+      return transformDeposit(updatedDeposit);
+    } catch (error) {
+      console.error("Error updating additional deposit data:", error);
+      throw error;
+    }
   }
 
-  let withdrawal: L2ToL1EventResultPlus | undefined
+  let withdrawal: L2ToL1EventResultPlus | undefined;
 
   if (isWithdrawalFromSubgraph(tx)) {
-    withdrawal = await mapWithdrawalToL2ToL1EventResult({
-      withdrawal: tx,
-      l1Provider: parentChainProvider,
-      l2Provider: childChainProvider
-    })
+    console.log("Transaction is a withdrawal from subgraph:", tx);
+    try {
+      withdrawal = await mapWithdrawalToL2ToL1EventResult({
+        withdrawal: tx,
+        l1Provider: parentChainProvider,
+        l2Provider: childChainProvider
+      });
+    } catch (error) {
+      console.error("Error mapping withdrawal from subgraph:", error);
+      throw error;
+    }
   } else {
     if (isTokenWithdrawal(tx)) {
-      withdrawal = await mapTokenWithdrawalFromEventLogsToL2ToL1EventResult({
-        result: tx,
-        l1Provider: parentChainProvider,
-        l2Provider: childChainProvider
-      })
+      console.log("Transaction is a token withdrawal:", tx);
+      try {
+        withdrawal = await mapTokenWithdrawalFromEventLogsToL2ToL1EventResult({
+          result: tx,
+          l1Provider: parentChainProvider,
+          l2Provider: childChainProvider
+        });
+      } catch (error) {
+        console.error("Error mapping token withdrawal from event logs:", error);
+        throw error;
+      }
     } else {
-      withdrawal = await mapETHWithdrawalToL2ToL1EventResult({
-        event: tx,
-        l1Provider: parentChainProvider,
-        l2Provider: childChainProvider
-      })
+      console.log("Transaction is an ETH withdrawal:", tx);
+      try {
+        withdrawal = await mapETHWithdrawalToL2ToL1EventResult({
+          event: tx,
+          l1Provider: parentChainProvider,
+          l2Provider: childChainProvider
+        });
+      } catch (error) {
+        console.error("Error mapping ETH withdrawal:", error);
+        throw error;
+      }
     }
   }
 
   if (withdrawal) {
-    return transformWithdrawal(withdrawal)
+    console.log("Successfully mapped withdrawal:", withdrawal);
+    return transformWithdrawal(withdrawal);
   }
 
   // Throw user friendly error in case we catch it and display in the UI.
-  throw new Error(
-    'An error has occurred while fetching a transaction. Please try again later or contact the support.'
-  )
+  const errorMessage = 'An error has occurred while fetching a transaction. Please try again later or contact the support.';
+  console.error(errorMessage, tx);
+  throw new Error(errorMessage);
 }
+
+// async function transformTransaction(tx: Transfer): Promise<MergedTransaction> {
+//   const parentChainProvider = getProvider(tx.parentChainId)
+//   const childChainProvider = getProvider(tx.childChainId)
+
+//   if (isCctpTransfer(tx)) {
+//     return tx
+//   }
+
+//   if (isDeposit(tx)) {
+//     return transformDeposit(
+//       await updateAdditionalDepositData({
+//         depositTx: tx,
+//         l1Provider: parentChainProvider,
+//         l2Provider: childChainProvider
+//       })
+//     )
+//   }
+
+//   let withdrawal: L2ToL1EventResultPlus | undefined
+
+//   if (isWithdrawalFromSubgraph(tx)) {
+//     withdrawal = await mapWithdrawalToL2ToL1EventResult({
+//       withdrawal: tx,
+//       l1Provider: parentChainProvider,
+//       l2Provider: childChainProvider
+//     })
+//   } else {
+//     if (isTokenWithdrawal(tx)) {
+//       withdrawal = await mapTokenWithdrawalFromEventLogsToL2ToL1EventResult({
+//         result: tx,
+//         l1Provider: parentChainProvider,
+//         l2Provider: childChainProvider
+//       })
+//     } else {
+//       withdrawal = await mapETHWithdrawalToL2ToL1EventResult({
+//         event: tx,
+//         l1Provider: parentChainProvider,
+//         l2Provider: childChainProvider
+//       })
+//     }
+//   }
+
+//   if (withdrawal) {
+//     return transformWithdrawal(withdrawal)
+//   }
+
+//   // Throw user friendly error in case we catch it and display in the UI.
+//   throw new Error(
+//     'An error has occurred while fetching a transaction. Please try again later or contact the support.'
+//   )
+// }
 
 function getTxIdFromTransaction(tx: Transfer) {
   if (isCctpTransfer(tx)) {
@@ -326,6 +408,8 @@ const useTransactionHistoryWithoutStatuses = (address: Address | undefined) => {
               isConnectedToParentChain
             })
             try {
+
+       
               return await fetcherFn({
                 sender: includeSentTxs ? address : undefined,
                 receiver: includeReceivedTxs ? address : undefined,
@@ -429,6 +513,9 @@ export const useTransactionHistory = (
     failedChainPairs
   } = useTransactionHistoryWithoutStatuses(address)
 
+ 
+   
+
   const getCacheKey = useCallback(
     (pageNumber: number, prevPageTxs: MergedTransaction[]) => {
       if (prevPageTxs) {
@@ -479,6 +566,7 @@ export const useTransactionHistory = (
     isSmartContractWallet,
     chain
   ])
+  console.log("depositsFromCache" , depositsFromCache);
 
   const {
     data: txPages,
@@ -491,31 +579,44 @@ export const useTransactionHistory = (
   } = useSWRInfinite(
     getCacheKey,
     ([, , _page, _data]) => {
-      // we get cached data and dedupe here because we need to ensure _data never mutates
-      // otherwise, if we added a new tx to cache, it would return a new reference and cause the SWR key to update, resulting in refetching
-      const dataWithCache = [..._data, ...depositsFromCache]
-
-      // duplicates may occur when txs are taken from the local storage
-      // we don't use Set because it wouldn't dedupe objects with different reference (we fetch them from different sources)
+      console.log("Fetching page:", _page);
+      console.log("Data before combining with cache:", _data);
+      console.log("Deposits from cache:", depositsFromCache);
+  
+      // Combine cached data with fetched data
+      const dataWithCache = [..._data, ...depositsFromCache];
+      console.log("Data combined with cache:", dataWithCache);
+  
+      // Deduplicate transactions
       const dedupedTransactions = Array.from(
         new Map(
           dataWithCache.map(tx => [
-            `${tx.parentChainId}-${tx.childChainId}-${getTxIdFromTransaction(
-              tx
-            )?.toLowerCase()}}`,
+            `${tx.parentChainId}-${tx.childChainId}-${getTxIdFromTransaction(tx)?.toLowerCase()}}`,
             tx
           ])
         ).values()
-      ).sort(sortByTimestampDescending)
-
-      const startIndex = _page * MAX_BATCH_SIZE
-      const endIndex = startIndex + MAX_BATCH_SIZE
-
+      ).sort(sortByTimestampDescending);
+      console.log("Deduplicated transactions:", dedupedTransactions);
+  
+      const startIndex = _page * MAX_BATCH_SIZE;
+      const endIndex = startIndex + MAX_BATCH_SIZE;
+      console.log("Transactions for current batch (startIndex, endIndex):", startIndex, endIndex);
+  
+      // Transform transactions
       return Promise.all(
         dedupedTransactions
           .slice(startIndex, endIndex)
-          .map(transformTransaction)
-      )
+          .map(tx => {
+            try {
+              const transformed = transformTransaction(tx);
+              console.log("Transformed transaction:", transformed);
+              return transformed;
+            } catch (error) {
+              console.error("Error transforming transaction:", tx, error);
+              throw error;
+            }
+          })
+      );
     },
     {
       revalidateOnFocus: false,
@@ -529,7 +630,7 @@ export const useTransactionHistory = (
       dedupingInterval: 1_000_000
     }
   )
-
+  console.info('Transaction pages:', { txPages, error: txPagesError, page, isValidating, isLoadingFirstPage });
   // based on an example from SWR
   // https://swr.vercel.app/examples/infinite-loading
   const isLoadingMore =
@@ -742,8 +843,9 @@ export const useTransactionHistory = (
     setFetching(true)
     setPage(prevPage => prevPage + 1)
   }
-
+ 
   if (isLoadingTxsWithoutStatus || error) {
+    console.error('Error loading transactions:', error);
     return {
       transactions: [],
       loading: isLoadingTxsWithoutStatus,
@@ -757,6 +859,9 @@ export const useTransactionHistory = (
     }
   }
 
+  // console.log("transactions final use Hx")
+  // console.table(transactions)
+  console.groupEnd();
   return {
     transactions,
     loading: isLoadingFirstPage || isLoadingMore,

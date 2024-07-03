@@ -74,9 +74,9 @@ export async function fetchWithdrawalsFromSubgraph({
   if (!hasL2Subgraph(Number(l2ChainId))) {
     throw new Error(`L2 subgraph not available for network: ${l2ChainId}`)
   }
-
+  
+  console.log("${getAPIBaseUrl()}/api/withdrawals?${urlParams}" , `${getAPIBaseUrl()}/api/withdrawals?${urlParams}`)
   if (pageSize === 0) return [] // don't query subgraph if nothing requested
-
   const response = await fetch(
     `${getAPIBaseUrl()}/api/withdrawals?${urlParams}`,
     {
@@ -90,7 +90,7 @@ export async function fetchWithdrawalsFromSubgraph({
   ).data
 
  
-  
+  console.log("transactions withdrawals" ,transactions)
 
   return transactions
 }
