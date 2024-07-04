@@ -124,7 +124,7 @@ export function getBridgeUiConfigForChain(chainId: number): BridgeUiConfig {
             color: '#000000',
             network: {
               name: 'Complere Chain',
-              logo: '/images/ArbitrumOneLogo.svg',
+              logo: '/images/ArbitrumLogo.svg',
            
               description:
                 'Complare Chain which is the child of a base chain'
