@@ -53,6 +53,18 @@ export async function attachTimestampToTokenWithdrawal({
   const txReceipt = await l2Provider.getTransactionReceipt(withdrawal.txHash)
   const l2TxReceipt = new L2TransactionReceipt(txReceipt)
   const [event] = l2TxReceipt.getL2ToL1Events()
+  console.info('Transaction Receipt:', txReceipt);
+  console.table([txReceipt]);
+
+  console.info('L2 Transaction Receipt:', l2TxReceipt);
+  if (event) {
+    console.log('L2 to L1 Event:', event);
+    console.table([event]);
+  } else {
+    console.warn('No L2 to L1 Event found.');
+  }
+  
+  console.groupEnd();
 
   return {
     ...withdrawal,
@@ -113,6 +125,8 @@ export async function getOutgoingMessageState(
   }
 
   const messageReader = new L2ToL1MessageReader(l1Provider, event)
+  console.log("const messageReader = new L2ToL1MessageReader(l1Provider, event)")
+ console.table(messageReader )
 
   try {
     return await messageReader.status(l2Provider)
@@ -134,7 +148,8 @@ export async function attachNodeBlockDeadlineToEvent(
   }
 
   const messageReader = L2ToL1MessageReader.fromEvent(l1Provider, event)
-
+  console.log("const messageReader = L2ToL1MessageReader.fromEvent(l1Provider, event)")
+ console.table(messageReader )
   try {
     const firstExecutableBlock = await messageReader.getFirstExecutableBlock(
       l2Provider
@@ -191,6 +206,7 @@ export async function mapTokenWithdrawalFromEventLogsToL2ToL1EventResult({
   })
 
   const txReceipt = await l2Provider.getTransactionReceipt(result.txHash)
+  console.log("map token error" , {result , txReceipt  , l1Provider , l2Provider})
   const l2TxReceipt = new L2TransactionReceipt(txReceipt)
 
   // TODO: length != 1
@@ -263,7 +279,20 @@ export async function mapWithdrawalToL2ToL1EventResult({
   l2Provider: Provider
 }): Promise<L2ToL1EventResultPlus | undefined> {
   // get transaction receipt
+
+
+  
+  // const MYtxReceipt = await l2Provider.getTransactionReceipt("0x8262416c019265ae86eba4935f2a057d32d1fd50b85a3ead82cdf1e415b04e74")
+  // console.log("map MYtxReceipt" , {MYtxReceipt})
+  // const MYl2TxReceipt = new L2TransactionReceipt(MYtxReceipt)
+  // console.log("map MYl2TxReceipt" , {MYl2TxReceipt})
+  
+  // const [MYevent] = MYl2TxReceipt.getL2ToL1Events()
+  // console.log("map MYevent" , {MYevent})
+  
+  
   const txReceipt = await l2Provider.getTransactionReceipt(withdrawal.l2TxHash)
+  console.log("map Eth error" , {withdrawal , txReceipt  , l1Provider , l2Provider})
   const l2TxReceipt = new L2TransactionReceipt(txReceipt)
 
   // TODO: length != 1

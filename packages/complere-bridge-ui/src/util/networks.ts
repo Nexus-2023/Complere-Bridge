@@ -132,7 +132,8 @@ export enum ChainId {
   Holesky = 17000,
   NexusOrbit = 13331370,
   baseSepolia = 84532,
-  Complare = 451451234,
+  // Complare = 451451234,
+  Complare = 5918836757,
   // L1
   Ethereum = 1,
   // L1 Testnets

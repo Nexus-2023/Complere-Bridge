@@ -23,10 +23,17 @@ function TransactionHistorySidePanel() {
     runFetcher: true
   })
 
-  console.log("transactionHistoryProps" , transactionHistoryProps);
-  
+  // const transactionHistoryProps  = useTransactionHistory(address, {
+  //   runFetcher: false
+  // })
+ 
+  // console.log("address" , address);
+  // console.log("main content transactionHistoryProps" , transactionHistoryProps);
 
   const { transactions, updatePendingTransaction } = transactionHistoryProps
+  // console.log("main content transactions" , transactions);
+  
+
 
   const pendingTransactions = useMemo(() => {
     return transactions.filter(isTxPending)

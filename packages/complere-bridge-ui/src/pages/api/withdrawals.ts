@@ -135,6 +135,7 @@ export default async function handler(
     }`
     })
 
+  
     const transactions: FetchWithdrawalsFromSubgraphResult[] =
       subgraphResult.data.withdrawals.map((eventData: any) => {
         const {
@@ -166,7 +167,7 @@ export default async function handler(
         }
       })
       
-         
+           console.log("transactions withdrawals" ,transactions)
     res.status(200).json({
       meta: { source: getSourceFromSubgraphClient(subgraphClient) },
       data: transactions

@@ -41,7 +41,8 @@ export async function addNexusChain() {
           method: 'wallet_addEthereumChain',
           params: [
             {
-              chainId: '0x1AE89962',
+              // chainId: '0x1AE89962', avail
+              chainId: '0x160CA4815',
               rpcUrls: [
                 `${process.env.NEXT_PUBLIC_L3_RPC}`
               ],
