@@ -56,7 +56,7 @@ function ResponsiveAppBar({ wallet, marginBelow }: ResponsiveAppBarProps) {
               alt="web Complare logo"
               className=" mr-2"
             />
-            <h1 className="text-3xl font-semibold  text-white">Complare</h1>
+            <h1 className="text-3xl font-semibold  text-white">Complere</h1>
           </Box>
           <Box
             sx={{
@@ -178,7 +178,7 @@ function ResponsiveAppBar({ wallet, marginBelow }: ResponsiveAppBarProps) {
               alt="mobile Complare logo"
               className=" mr-2"
             />
-            <h1 className="text-3xl font-semibold  text-white">Complare</h1>
+            <h1 className="text-3xl font-semibold  text-white">Complere</h1>
           </Box>
 
           {/* Web Links */}
