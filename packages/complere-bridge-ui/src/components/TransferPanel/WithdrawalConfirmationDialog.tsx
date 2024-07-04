@@ -117,7 +117,7 @@ export function WithdrawalConfirmationDialog(
 
           <Tab.Panel className="flex flex-col justify-between">
             <div className="flex flex-col space-y-4 py-4">
-              <div className="flex flex-col space-y-4">
+              {/* <div className="flex flex-col space-y-4">
                 <p className="font-light">
                   Get your funds in ~{confirmationPeriod} and pay a small fee
                   twice.{' '}
@@ -128,13 +128,13 @@ export function WithdrawalConfirmationDialog(
                     Learn more.
                   </ExternalLink>
                 </p>
-              </div>
+              </div> */}
 
               <div className="flex flex-col space-y-4">
                 <Checkbox
                   label={
                     <span className="font-light">
-                      I understand that it will take ~{confirmationPeriod}{' '}
+                      I understand that it will take at least ~30 min{' '}
                       before I can claim my funds on {destinationNetworkName}
                     </span>
                   }

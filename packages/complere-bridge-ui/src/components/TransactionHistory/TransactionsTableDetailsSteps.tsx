@@ -39,7 +39,7 @@ function getTransferDurationText(tx: MergedTransaction) {
     if (isOrbitChain) {
       return 'a minute'
     }
-    return isTestnet ? '10 minutes' : '15 minutes'
+    return isTestnet ? '30 minutes' : '30 minutes'
   }
 
   // withdrawals
@@ -214,7 +214,7 @@ export const TransactionsTableDetailsSteps = ({
       <Step
         pending={isTxPending(tx)}
         done={!isTxPending(tx) && !isSourceChainDepositFailure}
-        text={`Wait ~${getTransferDurationText(tx)}`}
+        text={`Wait ~30 min`}
         endItem={
           isTxPending(tx) && (
             <div>
