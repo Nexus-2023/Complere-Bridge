@@ -167,7 +167,9 @@ async function transformTransaction(tx: Transfer): Promise<MergedTransaction> {
       console.error("Error mapping withdrawal from subgraph:", error);
       throw error;
     }
-  } else {
+  } 
+  
+  else {
     if (isTokenWithdrawal(tx)) {
       console.log("Transaction is a token withdrawal:", tx);
       try {
