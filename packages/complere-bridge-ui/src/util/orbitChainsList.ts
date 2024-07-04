@@ -340,16 +340,16 @@ export const orbitTestnets: { [key in number]: OrbitChainConfig } = {
       }
     }
   },
-  451451234: {
-    chainID: 451451234,
+  5918836757: {
+    chainID: 5918836757,
     confirmPeriodBlocks: 20,
     ethBridge: {
-      bridge: '0xcF23aE50D42664981697cE8eCdB3820198425326',
-      inbox: '0x8Fa699394c59613b0fA2725BE8c4AD5cb863a7f0',
-      outbox: '0xCc736d1A9C5F1c21C3209af7C7f9876B5C03F5B3',
-      rollup: '0xFc70B21D8b10091e34E21901002cc6b739b57a46',
-      sequencerInbox: '0x24DCda9d06BcDF14e83bC2a3d23d75c91B49Ab86',
-    },
+      bridge: '0xC06f9abbc5Aa7B746b1E6473FF3b153789D1e7E7',
+      inbox: '0x6EaDDF737e5596e9548783207d62f8AA70b44c64',
+      outbox: '0xe56DBA887A29E5B1f0af8430e09bA4e1AE50aEb6',
+      rollup: '0x637677A8120ABdcdF06B0706AB1E8201d433A799',
+      sequencerInbox: '0xCe4DA52c9dD9BBe5d3e13Ee72BcBe38EbF521574',
+  },
     nativeToken: '0x0000000000000000000000000000000000000000',
     explorerUrl: `${process.env.NEXT_PUBLIC_L3_EXPLORER}`,
     rpcUrl: `${process.env.NEXT_PUBLIC_L3_RPC}`,
@@ -361,21 +361,20 @@ export const orbitTestnets: { [key in number]: OrbitChainConfig } = {
     partnerChainIDs: [84532],
     retryableLifetimeSeconds: 604800,
     tokenBridge: {
-      l1CustomGateway: '0x67f1dCf32f22583C24501ffD9a6DC657eEc27e62',
-      l1ERC20Gateway: '0x363631e85fC470bb9AB038cBe14082A1601Adf9f', // standard gatway
-      l1GatewayRouter: '0xD345845633b37B9D4241F7b134c62143bDbd3bB8', // router
+      l1CustomGateway: '0xee6714063aBd05D295380a8fB21135f305dE2404',
+      l1ERC20Gateway: '0x5DA248A5e1FB3523F6A305f0D34F8f40fA7e8C8D', // standard gatway
+      l1GatewayRouter: '0x9650FAe0125BdD92626786Dc1dfC6554a01c9e26', // router
       l1MultiCall: '0xE0753Df74d86D6B25aCd2d049389c7E52e2dd728',
-      l1ProxyAdmin: '0x977dC362E64598Bea0c792E23240d4ff02F3D64B', // adminProxy 
+      l1ProxyAdmin: '0x7Af2E75678E4B6f82EFCF573f7B32e65bA77489E', // adminProxy 
       l1Weth: '0x1BDD24840e119DC2602dCC587Dd182812427A5Cc',
-      l1WethGateway: '0xaa9218236820025eBB217103Af7a813fc3e5284A',
-
-      l2CustomGateway: '0x0fec5B021B8e47c0c2B8d6Bd937aDe4bd68512aa',
-      l2ERC20Gateway: '0x7abe445952B009B264b29777a57554b4CF8B9906', // standard
-      l2GatewayRouter: '0x85E3d52733154c1538c167f519914fC50ac15AAf',
-      l2Multicall: '0x7bf784D7C7081489cDe0227F9EfCA83844fbC979',
-      l2ProxyAdmin: '0x766b6d02DCED9193552a98448Fe612e85a9f7D5F',
-      l2Weth: '0x5499fA9Fa221B08FAb23E08c6F80Ddd52074Da48',
-      l2WethGateway: '0xf9367E751324274fE0eA54140dbD60811f1CACe6'
+      l1WethGateway: '0x3D1AF9bce5F1597a3A925cEB7725a4DBcb0eB4C1',
+      l2CustomGateway: '0x8BE2B72ddAceC8957f1f1C8c28093BCF3d85Dc6f',
+      l2ERC20Gateway: '0xd539cb65D8848782A285333e584E4b8dA02ac945', // standard
+      l2GatewayRouter: '0x401Dc22876ff8Bc1837857c698D98Dd88991F1eB',
+      l2Multicall: '0x0C97cBE5bF9D153b5FdA807187452861D61fD52f',
+      l2ProxyAdmin: '0xfC95A7f751E912020AC3aE9aCa988943ef271df5',
+      l2Weth: '0x27d7adF6957d6976F6cb812232eCD9a29EfE3Bdf',
+      l2WethGateway: '0xcA90173Bb68FCc22bc6847de0C7Aa439f19c5c87'
     },
     nitroGenesisBlock: 0,
     nitroGenesisL1Block: 0,
