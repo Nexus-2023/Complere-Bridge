@@ -51,15 +51,15 @@ export function getBridgeUiConfigForChain(chainId: number): BridgeUiConfig {
         }
       }
 
-      case ChainId.baseSepolia:
-        return {
-          color: '#0f126c',
-          network: {
-            logo: '/images/baseLogo2.png',
-            name: 'Base Sepolia',
-            description: 'Base testnet'
-          }
+    case ChainId.baseSepolia:
+      return {
+        color: '#0f126c',
+        network: {
+          logo: '/images/baseLogo2.png',
+          name: 'Base Sepolia',
+          description: 'Base testnet'
         }
+      }
     case ChainId.Local:
       return {
         ...ethereumBaseConfig,
@@ -117,19 +117,17 @@ export function getBridgeUiConfigForChain(chainId: number): BridgeUiConfig {
         }
       }
 
- 
+    case ChainId.Complare:
+      return {
+        color: '#000000',
+        network: {
+          name: 'Complere Chain',
+          logo: '/images/ArbitrumLogo.svg',
+          description: 'Complare Chain which is the child of a base chain'
+        }
+      }
 
-        case ChainId.Complare:
-          return {
-            color: '#000000',
-            network: {
-              name: 'Complere Chain',
-              logo: '/images/ArbitrumLogo.svg',
-           
-              description:
-                'Complare Chain which is the child of a base chain'
-            }
-          }
+      
     default: {
       // added Orbit chains
       const orbitChain = orbitChains[chainId]

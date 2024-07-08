@@ -145,7 +145,7 @@ export default async function handler(
 
     const transactions: FetchDepositsFromSubgraphResult[] =
       subgraphResult.data.deposits
-      console.log("subgraphResult" ,subgraphResult);
+ 
     res.status(200).json({
       meta: { source: getSourceFromSubgraphClient(subgraphClient) },
       data: transactions

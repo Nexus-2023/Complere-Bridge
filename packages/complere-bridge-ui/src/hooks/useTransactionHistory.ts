@@ -125,21 +125,17 @@ function isDeposit(tx: DepositOrWithdrawal): tx is Deposit {
 }
 
 async function transformTransaction(tx: Transfer): Promise<MergedTransaction> {
-  console.log("Starting transformation for transaction:", tx);
-
+  
   const parentChainProvider = getProvider(tx.parentChainId);
   const childChainProvider = getProvider(tx.childChainId);
-
-  console.log("Parent chain provider:", parentChainProvider);
-  console.log("Child chain provider:", childChainProvider);
-
+ 
   if (isCctpTransfer(tx)) {
-    console.log("Transaction is a CCTP transfer:", tx);
+    
     return tx;
   }
 
   if (isDeposit(tx)) {
-    console.log("Transaction is a deposit:", tx);
+    
     try {
       const updatedDeposit = await updateAdditionalDepositData({
         depositTx: tx,
@@ -156,7 +152,7 @@ async function transformTransaction(tx: Transfer): Promise<MergedTransaction> {
   let withdrawal: L2ToL1EventResultPlus | undefined;
 
   if (isWithdrawalFromSubgraph(tx)) {
-    console.log("Transaction is a withdrawal from subgraph:", tx);
+   
     try {
       withdrawal = await mapWithdrawalToL2ToL1EventResult({
         withdrawal: tx,
@@ -171,7 +167,7 @@ async function transformTransaction(tx: Transfer): Promise<MergedTransaction> {
   
   else {
     if (isTokenWithdrawal(tx)) {
-      console.log("Transaction is a token withdrawal:", tx);
+      
       try {
         withdrawal = await mapTokenWithdrawalFromEventLogsToL2ToL1EventResult({
           result: tx,
@@ -183,7 +179,7 @@ async function transformTransaction(tx: Transfer): Promise<MergedTransaction> {
         throw error;
       }
     } else {
-      console.log("Transaction is an ETH withdrawal:", tx);
+   
       try {
         withdrawal = await mapETHWithdrawalToL2ToL1EventResult({
           event: tx,
@@ -198,7 +194,7 @@ async function transformTransaction(tx: Transfer): Promise<MergedTransaction> {
   }
 
   if (withdrawal) {
-    console.log("Successfully mapped withdrawal:", withdrawal);
+    
     return transformWithdrawal(withdrawal);
   }
 
@@ -568,7 +564,7 @@ export const useTransactionHistory = (
     isSmartContractWallet,
     chain
   ])
-  console.log("depositsFromCache" , depositsFromCache);
+ 
 
   const {
     data: txPages,
@@ -581,13 +577,11 @@ export const useTransactionHistory = (
   } = useSWRInfinite(
     getCacheKey,
     ([, , _page, _data]) => {
-      console.log("Fetching page:", _page);
-      console.log("Data before combining with cache:", _data);
-      console.log("Deposits from cache:", depositsFromCache);
+ 
   
       // Combine cached data with fetched data
       const dataWithCache = [..._data, ...depositsFromCache];
-      console.log("Data combined with cache:", dataWithCache);
+    
   
       // Deduplicate transactions
       const dedupedTransactions = Array.from(
@@ -598,11 +592,11 @@ export const useTransactionHistory = (
           ])
         ).values()
       ).sort(sortByTimestampDescending);
-      console.log("Deduplicated transactions:", dedupedTransactions);
+       
   
       const startIndex = _page * MAX_BATCH_SIZE;
       const endIndex = startIndex + MAX_BATCH_SIZE;
-      console.log("Transactions for current batch (startIndex, endIndex):", startIndex, endIndex);
+     
   
       // Transform transactions
       return Promise.all(
@@ -611,7 +605,7 @@ export const useTransactionHistory = (
           .map(tx => {
             try {
               const transformed = transformTransaction(tx);
-              console.log("Transformed transaction:", transformed);
+            
               return transformed;
             } catch (error) {
               console.error("Error transforming transaction:", tx, error);

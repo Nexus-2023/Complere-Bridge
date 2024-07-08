@@ -43,6 +43,8 @@ export type CCTPSupportedChainId =
   | ChainId.Sepolia
   | ChainId.ArbitrumOne
   | ChainId.ArbitrumSepolia
+  // | ChainId.baseSepolia
+  // | ChainId.Complare
 
 function getSourceChainIdFromSourceDomain(
   sourceDomain: ChainDomain,
@@ -80,6 +82,7 @@ export function getUSDCAddresses(chainId: CCTPSupportedChainId) {
     [ChainId.ArbitrumOne]: CommonAddress.ArbitrumOne,
     [ChainId.Sepolia]: CommonAddress.Sepolia,
     [ChainId.ArbitrumSepolia]: CommonAddress.ArbitrumSepolia
+    // [ChainId.baseSepolia]: CommonAddress.baseSepolia,
   }[chainId]
 }
 

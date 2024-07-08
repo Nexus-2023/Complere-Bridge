@@ -64,9 +64,7 @@
    overflow-x: auto;
 }
 
-.validatorTableRow{
-
-}
+ 
  
 .tabular-nums {
   font-family: inter !important;
@@ -85,13 +83,7 @@ body {
   font-weight: 300;
 }
 
-#backgroundImage {
-  @apply min-h-screen;
-  background-image: url("/images/nexus/Hero-image.webp");
-  background-size: cover;
-  background-position: center;
-  
-}
+ 
 
 /*** HIDE NUMBER INPUT STEPS BUTTONS ****/
 /* Chrome, Safari, Edge, Opera */

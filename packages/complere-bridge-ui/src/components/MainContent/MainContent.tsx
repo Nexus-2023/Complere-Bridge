@@ -23,17 +23,7 @@ function TransactionHistorySidePanel() {
     runFetcher: true
   })
 
-  // const transactionHistoryProps  = useTransactionHistory(address, {
-  //   runFetcher: false
-  // })
- 
-  // console.log("address" , address);
-  // console.log("main content transactionHistoryProps" , transactionHistoryProps);
-
   const { transactions, updatePendingTransaction } = transactionHistoryProps
-  // console.log("main content transactions" , transactions);
-  
-
 
   const pendingTransactions = useMemo(() => {
     return transactions.filter(isTxPending)
@@ -60,28 +50,19 @@ function TransactionHistorySidePanel() {
 }
 
 export function MainContent() {
-  const [isArbitrumStatsVisible] =
-    useLocalStorage<boolean>(statsLocalStorageKey)
-
   return (
     <>
-    <div className='w-full   h-full  min-h-[78vh] flex flex-col justify-center  items-center ' >
+      <div className="flex   h-full  min-h-[78vh] w-full flex-col items-center  justify-center ">
+        <div className="   z-10   mx-auto flex w-full  flex-col  sm:max-w-[600px]  sm:pt-6">
+          {/* <TransactionStatusInfo /> */}
 
-      <div className="   mx-auto   flex w-full flex-col  sm:max-w-[600px]  z-10  sm:pt-6">
-        {/* <TransactionStatusInfo /> */}
-
-        <TransferPanel />
+          <TransferPanel />
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
 
       <TransactionHistorySidePanel />
-
-      {/* Settings panel */}
-      <SettingsDialog />
-
-      {/* Toggle-able Stats for nerds */}
-      {isArbitrumStatsVisible && <ArbitrumStats />}
+ 
     </>
   )
 }

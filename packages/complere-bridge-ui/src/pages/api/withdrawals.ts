@@ -88,9 +88,7 @@ export default async function handler(
 
     let subgraphClient
     try {
-    
       subgraphClient = getL2SubgraphClient(Number(l2ChainId))
-  
     } catch (error: any) {
       // catch attempt to query unsupported networks and throw a 400
       res.status(400).json({
@@ -135,7 +133,6 @@ export default async function handler(
     }`
     })
 
-  
     const transactions: FetchWithdrawalsFromSubgraphResult[] =
       subgraphResult.data.withdrawals.map((eventData: any) => {
         const {
@@ -166,8 +163,8 @@ export default async function handler(
           l2BlockNum
         }
       })
-      
-           console.log("transactions withdrawals" ,transactions)
+
+   
     res.status(200).json({
       meta: { source: getSourceFromSubgraphClient(subgraphClient) },
       data: transactions

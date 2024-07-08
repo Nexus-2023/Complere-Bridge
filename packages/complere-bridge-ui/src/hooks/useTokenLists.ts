@@ -14,9 +14,9 @@ export function fetchTokenLists(
     const { isOrbitChain } = isNetwork(forL2ChainId)
     const requestListArray = BRIDGE_TOKEN_LISTS.filter(
       bridgeTokenList =>
-        bridgeTokenList.originChainID === forL2ChainId ||
+        bridgeTokenList.originChainID === forL2ChainId  
         // Always load the Arbitrum Token token list except from or to Orbit chain
-        (bridgeTokenList.isArbitrumTokenTokenList && !isOrbitChain)
+        // || (bridgeTokenList.isArbitrumTokenTokenList && !isOrbitChain)
     )
 
     Promise.all(

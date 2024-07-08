@@ -22,5 +22,10 @@ export const CommonAddress = {
     USDC: '0x75faf114eafb1bdbe2f0316df893fd58ce46aa4d',
     'USDC.e': '0x119f0e6303bec7021b295ecab27a4a1a5b37ecf0',
     tokenMessengerContractAddress: '0x9f3B8679c73C2Fef8b59B4f3444d4e156fb70AA5'
+  } ,
+
+  baseSepolia: {
+    USDC: '0x036CbD53842c5426634e7929541eC2318f3dCF7e',
+    tokenMessengerContractAddress: '0x9f3B8679c73C2Fef8b59B4f3444d4e156fb70AA5'
   }
 } as const

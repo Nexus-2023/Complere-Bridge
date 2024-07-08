@@ -281,18 +281,11 @@ export async function mapWithdrawalToL2ToL1EventResult({
   // get transaction receipt
 
 
-  
-  // const MYtxReceipt = await l2Provider.getTransactionReceipt("0x8262416c019265ae86eba4935f2a057d32d1fd50b85a3ead82cdf1e415b04e74")
-  // console.log("map MYtxReceipt" , {MYtxReceipt})
-  // const MYl2TxReceipt = new L2TransactionReceipt(MYtxReceipt)
-  // console.log("map MYl2TxReceipt" , {MYl2TxReceipt})
-  
-  // const [MYevent] = MYl2TxReceipt.getL2ToL1Events()
-  // console.log("map MYevent" , {MYevent})
+ 
   
   
   const txReceipt = await l2Provider.getTransactionReceipt(withdrawal.l2TxHash)
-  console.log("map Eth error" , {withdrawal , txReceipt  , l1Provider , l2Provider})
+ 
   const l2TxReceipt = new L2TransactionReceipt(txReceipt)
 
   // TODO: length != 1

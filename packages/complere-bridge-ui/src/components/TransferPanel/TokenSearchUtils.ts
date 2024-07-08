@@ -11,17 +11,25 @@ import { useNetworksRelationship } from '../../hooks/useNetworksRelationship'
 import { useNetworks } from '../../hooks/useNetworks'
 
 export function useTokensFromLists(): ContractStorage<ERC20BridgeToken> {
-  const [networks] = useNetworks()
-  const { childChain, parentChain } = useNetworksRelationship(networks)
-  const { data: tokenLists = [] } = useTokenLists(childChain.id)
+  const [networks] = useNetworks();
+ 
+  
+  const { childChain, parentChain } = useNetworksRelationship(networks);
+ 
+  
+  const { data: tokenLists = [] } = useTokenLists(childChain.id);
+ 
 
   return useMemo(() => {
-    return tokenListsToSearchableTokenStorage(
+    
+    const result = tokenListsToSearchableTokenStorage(
       tokenLists,
       String(parentChain.id),
       String(childChain.id)
-    )
-  }, [tokenLists, parentChain.id, childChain.id])
+    );
+  
+    return result;
+  }, [tokenLists, parentChain.id, childChain.id]);
 }
 
 export function useTokensFromUser(): ContractStorage<ERC20BridgeToken> {
@@ -59,15 +67,19 @@ function tokenListsToSearchableTokenStorage(
 ): ContractStorage<ERC20BridgeToken> {
   return tokenLists.reduce(
     (acc: ContractStorage<ERC20BridgeToken>, tokenList: TokenListWithId) => {
+      
+ 
       tokenList.tokens.forEach(token => {
         const address = token.address.toLowerCase()
         const stringifiedChainId = String(token.chainId)
         const accAddress = acc[address]
-
+  
         if (stringifiedChainId === l1ChainId) {
           // The address is from an L1 token
+         
           if (typeof accAddress === 'undefined') {
             // First time encountering the token through its L1 address
+           
             acc[address] = {
               ...token,
               type: TokenType.ERC20,
@@ -75,6 +87,7 @@ function tokenListsToSearchableTokenStorage(
               listIds: new Set()
             }
           } else {
+          
             // Token was already added to the map through its L2 token
             acc[address] = {
               ...accAddress,
@@ -84,10 +97,12 @@ function tokenListsToSearchableTokenStorage(
 
           // acc[address] was defined in the if/else above
           acc[address]!.listIds.add(tokenList.bridgeTokenListId)
+         
         } else if (stringifiedChainId === l2ChainId) {
           // The token is an L2 token
-
+          
           if (!token.extensions?.bridgeInfo) {
+           
             return
           }
 
@@ -100,13 +115,15 @@ function tokenListsToSearchableTokenStorage(
           const l1Bridge = bridgeInfo[l1ChainId]
           if (l1Bridge) {
             const addressOnL1 = l1Bridge.tokenAddress.toLowerCase()
-
+            
             if (!addressOnL1) {
+            
               return
             }
 
             if (typeof acc[addressOnL1] === 'undefined') {
               // Token is not on the list yet
+             
               acc[addressOnL1] = {
                 name: token.name,
                 symbol: token.symbol,
@@ -120,14 +137,16 @@ function tokenListsToSearchableTokenStorage(
             } else {
               // The token's L1 address is already on the list, just fill in its L2 address
               acc[addressOnL1]!.l2Address = address
+             
             }
 
             // acc[address] was defined in the if/else above
             acc[addressOnL1]!.listIds.add(tokenList.bridgeTokenListId)
+          
           }
         }
       })
-
+      
       return acc
     },
     {}

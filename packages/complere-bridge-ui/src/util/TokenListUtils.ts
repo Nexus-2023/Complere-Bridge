@@ -8,6 +8,7 @@ import GeminiLogo from '@/images/lists/gemini.png'
 import CMCLogo from '@/images/lists/cmc.png'
 import CoinGeckoLogo from '@/images/lists/coinGecko.svg'
 import ArbitrumLogo from '@/images/lists/ArbitrumLogo.png'
+import baseLogo from '@/images/baseLogo2.png'
 import { ArbTokenBridge } from '../hooks/arbTokenBridge.types'
 import { ChainId } from './networks'
 
@@ -41,7 +42,7 @@ export const BRIDGE_TOKEN_LISTS: BridgeTokenList[] = [
     name: 'Arbitrum Whitelist Era',
     isDefault: true,
     logoURI: ArbitrumLogo
-  },
+  }, 
   {
     id: 2,
     originChainID: ChainId.ArbitrumOne,
@@ -164,7 +165,24 @@ export const BRIDGE_TOKEN_LISTS: BridgeTokenList[] = [
     name: 'Arbed Uniswap List',
     isDefault: true,
     logoURI: UniswapLogo
-  }
+  },
+  {
+    id: 18,
+    originChainID: ChainId.baseSepolia,
+    url: 'https://tokenlist.arbitrum.io/ArbTokenLists/70700_arbed_uniswap_labs.json',
+    name: 'Base Sepolia',
+    isDefault: true,
+    logoURI: baseLogo
+  }, 
+
+  {
+    id: 19,
+    originChainID: ChainId.Complare,
+    url: 'https://tokenlist.arbitrum.io/ArbTokenLists/70700_arbed_uniswap_labs.json',
+    name: 'Complere',
+    isDefault: true,
+    logoURI: ArbitrumLogo
+  }, 
 ]
 
 export const listIdsToNames: { [key: string]: string } = {}

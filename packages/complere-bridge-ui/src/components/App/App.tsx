@@ -39,7 +39,7 @@ import { useNetworksRelationship } from '../../hooks/useNetworksRelationship'
 import { HeaderConnectWalletButton } from '../common/HeaderConnectWalletButton'
 import { AppConnectionFallbackContainer } from './AppConnectionFallbackContainer'
 import { ProviderName, trackEvent } from '../../util/AnalyticsUtils'
-import Fade from '@mui/material/Fade';
+import Fade from '@mui/material/Fade'
 declare global {
   interface Window {
     Cypress?: any
@@ -198,8 +198,8 @@ function AppContent() {
   const { parentChain, childChain } = useNetworksRelationship(networks)
   const { address, isConnected, connector } = useAccount()
   const { isBlocked } = useAccountIsBlocked()
-  const [fadeIn, setFadeIn] = useState(false);
-  
+  const [fadeIn, setFadeIn] = useState(false)
+
   const {
     isArbitrum: isConnectedToArbitrum,
     isOrbitChain: isConnectedToOrbitChain
@@ -208,15 +208,13 @@ function AppContent() {
     parentChain.id
   ).isEthereumMainnetOrTestnet
 
-
   const { openConnectModal } = useConnectModal()
 
-  
   useEffect(() => {
     if (!isConnected) {
       openConnectModal?.()
     }
-    setFadeIn(true);
+    setFadeIn(true)
   }, [isConnected, openConnectModal])
 
   useEffect(() => {
@@ -244,17 +242,17 @@ function AppContent() {
 
   if (!isConnected) {
     return (
-         <Fade in={fadeIn} timeout={1000}> 
-      <div  className='h-screen '>
-        <ResponsiveAppBar wallet={false}   marginBelow={"mb-26"} />
-        <AppConnectionFallbackContainer>
-        <div className="mt-4 flex w-full  items-center  justify-center">
-          <div>
-            <HeaderConnectWalletButton />
-          </div>
+      <Fade in={fadeIn} timeout={1000}>
+        <div className="h-screen ">
+          <ResponsiveAppBar wallet={false} marginBelow={'mb-26'} />
+          <AppConnectionFallbackContainer>
+            <div className="mt-4 flex w-full  items-center  justify-center">
+              <div>
+                <HeaderConnectWalletButton />
+              </div>
+            </div>
+          </AppConnectionFallbackContainer>
         </div>
-        </AppConnectionFallbackContainer>
-      </div>
       </Fade>
     )
   }
@@ -275,16 +273,15 @@ function AppContent() {
   }
 
   return (
-     <Fade in={fadeIn} timeout={1000}> 
-    <div   className='h-full relative'>
-      <ResponsiveAppBar wallet={true}   marginBelow={"mb-16"} />
-
-      <TokenListSyncer />
-      <BalanceUpdater />
-      <ArbTokenBridgeStoreSyncWrapper />
-      <MainContent />
-    </div>
-     </Fade>
+    <Fade in={fadeIn} timeout={1000}>
+      <div className="relative h-full">
+        <ResponsiveAppBar wallet={true} marginBelow={'mb-16'} />
+        <TokenListSyncer />
+        <BalanceUpdater />
+        <ArbTokenBridgeStoreSyncWrapper />
+        <MainContent />
+      </div>
+    </Fade>
   )
 }
 
@@ -294,7 +291,6 @@ function AppContent() {
 // https://github.com/wagmi-dev/references/blob/main/packages/connectors/src/walletConnect.ts#L114
 const searchParams = new URLSearchParams(window.location.search)
 const targetChainKey = searchParams.get('walletConnectChain')
-
 const { wagmiConfigProps, rainbowKitProviderProps } = getProps(targetChainKey)
 
 // Clear cache for everything related to WalletConnect v2.
@@ -312,6 +308,7 @@ function ConnectedChainSyncer() {
 
   const [{ sourceChain, destinationChain }, setQueryParams] =
     useArbQueryParams()
+
   const { chain } = useNetwork()
 
   useEffect(() => {
@@ -356,7 +353,7 @@ export default function App() {
         <WagmiConfig {...wagmiConfigProps}>
           <RainbowKitProvider
             theme={rainbowkitTheme}
-             modalSize="compact"
+            modalSize="compact"
             {...rainbowKitProviderProps}
           >
             <ConnectedChainSyncer />

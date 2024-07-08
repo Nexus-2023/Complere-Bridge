@@ -37,6 +37,7 @@ import {
   sanitizeTokenSymbol
 } from '../../util/TokenUtils'
 import {
+  COMPLERE_DISCORD,
   ETH_BALANCE_ARTICLE_LINK,
   USDC_LEARN_MORE_LINK,
   ether
@@ -546,7 +547,7 @@ export function TransferPanelMain({
           <span>
             Gas estimation failed, join our{' '}
             <ExternalLink
-              href="https://discord.gg/wnTfyh6T"
+              href={COMPLERE_DISCORD}
               className="underline"
             >
               Discord
