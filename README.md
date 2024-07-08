@@ -14,7 +14,7 @@
 1. Clone the Arbitrum token bridge repository from Github onto your local machine
 
    ```bash
-   $ git clone https://github.com/umershaikh123/Complere-Bridge.git
+   $ git clone <YOUR_REPO_LINK>
    ```
 
 2. Use the Node version as per project settings to avoid any errors before project installation.
@@ -39,24 +39,13 @@
 
    2. Set `NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID` to your WalletConnect project ID. You can create a new project on the [WalletConnect dashboard](https://cloud.walletconnect.com/app).
 
-   3. set layer 3 orbit chain urls:
-
-   - `NEXT_PUBLIC_L3_RPC`
-   - `NEXT_PUBLIC_L3_EXPLORER`
-   - `NEXT_PUBLIC_COMPLARE_LAYER2_SUBGRAPH`
-   - `NEXT_PUBLIC_BASESEPOLIA_LAYER1_SUBGRAPH`
-   - `NEXT_PUBLIC_BASE_SEPOLIA_RPC_URL` #optional
-   - `NEXT_PUBLIC_INFURA_KEY` #optional , needed for previous arbitrum netowrks
-   
-
-
-4. Build the project and internal packages
+3. Build the project and internal packages
 
    ```bash
    $ yarn build
    ```
 
-5. Finally, running the project
+4. Finally, running the project
 
    1. (back in root dir:)
 
@@ -68,6 +57,10 @@
 
 <br />
 
----
+## Deployment
+Deployment is done by vercel
 
-<br />
+- go to https://vercel.com/home
+- sign in
+- select your github project to deploy
+- set env in vercel deployed project settings
